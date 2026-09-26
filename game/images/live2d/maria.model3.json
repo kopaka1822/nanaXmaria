@@ -5,6 +5,7 @@
 		"Textures": [
 			"maria.2048/texture_00.png"
 		],
+		"Physics": "maria.physics3.json",
 		"DisplayInfo": "maria.cdi3.json"
 	},
 	"Groups": [

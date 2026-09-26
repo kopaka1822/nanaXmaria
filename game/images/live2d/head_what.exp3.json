@@ -1,0 +1,37 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 0.5,
+	"FadeOutTime": 5.0,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"Value": 2.667,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamAngleY",
+			"Value": -8,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"Value": 30,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"Value": 0,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"Value": -10,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"Value": -1.556,
+			"Blend": "Add"
+		}
+	]
+}

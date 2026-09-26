@@ -14,20 +14,14 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene black
+    show maria idle:
+        anchor (0.5, 0.5)
+        ypos 1.35 xpos 0.45
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    "Welcome to the game!"
 
-    show eileen happy
-
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
+    show maria eyes_closed_up brows_up
+    "This is maria!"
 
     return

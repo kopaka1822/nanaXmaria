@@ -21,6 +21,28 @@ label start:
 
     "Welcome to the game!"
 
+    maria "Once more the shriek of the Gryphon, the squeaking of the Lizard’s slate-pencil, and the choking of the suppressed guinea-pigs, filled the air, mixed up with the distant sobs of the miserable Mock Turtle."
+
+    show maria brows_up
+    voice "voice/na08.ogg"
+    maria "Once more the shriek of the Gryphon, the squeaking of the Lizard’s slate-pencil, and the choking of the suppressed guinea-pigs, filled the air, mixed up with the distant sobs of the miserable Mock Turtle."
+
+    show maria eyes_squint brows_angry
+    voice "voice/alice153.ogg"
+    maria "'You are old', said the youth, \n'one would hardly suppose\n{space=30}That your eye was as steady as ever;\nYet you balanced an eel \non the end of your nose—\n{space=30}What made you so awfully clever?'"
+
+    show maria eyes_blink iris_sad brows_down
+    voice "voice/alice063.ogg"
+    maria "I shall be punished for it now, I suppose, by being drowned in my own tears! That will be a queer thing, to be sure! However, everything is queer to-day."
+
+    show maria head_sad
+    voice "voice/alice033.ogg"
+    maria "(Oh, my poor little feet, I wonder who will put on your shoes and stockings for you now, dears? I’m sure I shan’t be able!)"
+
+    show maria head_forward eyes_squint brows_up iris_center
+    voice "voice/alice018.ogg"
+    maria "Now, Dinah, tell me the truth: did you ever eat a bat?"
+
     show maria eyes_closed_up brows_up
     "This is maria!"
 

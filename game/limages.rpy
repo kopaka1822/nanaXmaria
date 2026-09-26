@@ -24,6 +24,6 @@ init -20 python:
 
         return res
 
-image maria = Live2D("images/live2d/maria.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=NON_EXLUSIVES_LIVE2D, attribute_filter=live2d_attribute_filter) # TODO update function
+image maria = Live2D("images/live2d/maria.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=NON_EXLUSIVES_LIVE2D, attribute_filter=live2d_attribute_filter, update_function=live2d_lipsync_callback("maria"))
 
-image nana = Live2D("images/live2d/nana.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=NON_EXLUSIVES_LIVE2D, attribute_filter=live2d_attribute_filter) # TODO update function
+image nana = Live2D("images/live2d/nana.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=NON_EXLUSIVES_LIVE2D, attribute_filter=live2d_attribute_filter, update_function=live2d_lipsync_callback("nana"))

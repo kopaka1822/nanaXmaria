@@ -47,24 +47,24 @@
 			"Name": "Eyeball Y"
 		},
 		{
-			"Id": "ParamBrowLAngle",
-			"GroupId": "",
-			"Name": "BrowL Angle"
-		},
-		{
-			"Id": "ParamBrowRAngle",
-			"GroupId": "",
-			"Name": "BrowR Angle"
-		},
-		{
 			"Id": "ParamBrowLForm",
 			"GroupId": "",
 			"Name": "BrowL Form"
 		},
 		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "BrowL Angle"
+		},
+		{
 			"Id": "ParamBrowRForm",
 			"GroupId": "",
 			"Name": "BrowR Form"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "BrowR Angle"
 		},
 		{
 			"Id": "ParamMouthForm",
@@ -102,19 +102,14 @@
 			"Name": "Breath"
 		},
 		{
-			"Id": "ParamHairFront",
+			"Id": "BreathSway",
 			"GroupId": "",
-			"Name": "Hair Move Front"
+			"Name": "Breath Sway"
 		},
 		{
-			"Id": "ParamHairSide",
+			"Id": "HairSway",
 			"GroupId": "",
-			"Name": "Hair Move Side"
-		},
-		{
-			"Id": "ParamHairBack",
-			"GroupId": "",
-			"Name": "Hair Move Back"
+			"Name": "Hair Sway"
 		}
 	],
 	"ParameterGroups": [],
@@ -178,8 +173,12 @@
 			"ParamAngleY"
 		],
 		[
-			"ParamBodyAngleX",
-			"ParamBodyAngleY"
+			"ParamBrowLForm",
+			"ParamBrowLAngle"
+		],
+		[
+			"ParamBrowRForm",
+			"ParamBrowRAngle"
 		]
 	]
 }

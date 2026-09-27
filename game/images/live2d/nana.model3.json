@@ -5,6 +5,7 @@
 		"Textures": [
 			"nana.2048/texture_00.png"
 		],
+		"Physics": "nana.physics3.json",
 		"DisplayInfo": "nana.cdi3.json"
 	},
 	"Groups": [

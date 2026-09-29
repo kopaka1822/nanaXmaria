@@ -5,7 +5,7 @@ init -20 python:
         # iris:
         "iris_center", "iris_left", "iris_right", "iris_think", "iris_sad", "iris_random",
         # mouth:
-        #"mouth_neutral", "mouth_cringe", "mouth_frown", "mouth_pout", "mouth_small", "mouth_smile", "mouth_vampire",
+        "mouth_neutral", "mouth_frown", "mouth_pout", "mouth_smile", "mouth_bigsmile",
         # eyes:
         "eyes_blink", "eyes_closed_down", "eyes_closed_up", "eyes_squint", "eyes_wink",
         # brows: 

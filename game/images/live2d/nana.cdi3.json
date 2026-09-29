@@ -77,6 +77,11 @@
 			"Name": "Mouth Open"
 		},
 		{
+			"Id": "ParamExpression",
+			"GroupId": "",
+			"Name": "Expression"
+		},
+		{
 			"Id": "ParamCheek",
 			"GroupId": "",
 			"Name": "Cheek"

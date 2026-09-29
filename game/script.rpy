@@ -46,22 +46,22 @@ label start:
 
     scene black
 
-    show nana idle brows_up:
+    show nana idle brows_up mouth_neutral:
         anchor (0.5, 0.5)
         ypos 1.15 xpos 0.45
 
     voice "voice/na08.ogg"
     nana "Once more the shriek of the Gryphon, the squeaking of the Lizard’s slate-pencil, and the choking of the suppressed guinea-pigs, filled the air, mixed up with the distant sobs of the miserable Mock Turtle."
 
-    show nana eyes_squint brows_neutral iris_center
+    show nana eyes_squint brows_neutral iris_center mouth_pout
     voice "voice/alice018.ogg"
     nana "Now, Dinah, tell me the truth: did you ever eat a bat?"
 
-    show nana brows_down iris_center eyes_blink
+    show nana brows_down iris_center eyes_blink mouth_smile
     voice "voice/duchess23.ogg"
     nana "—or if you’d like it put more simply—‘Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise’."
 
-    show nana eyes_closed_up brows_up
+    show nana eyes_closed_up brows_up mouth_bigsmile
     "This is nana!"
 
     return

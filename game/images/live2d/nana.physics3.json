@@ -1,10 +1,10 @@
 {
 	"Version": 3,
 	"Meta": {
-		"PhysicsSettingCount": 2,
-		"TotalInputCount": 3,
-		"TotalOutputCount": 2,
-		"VertexCount": 4,
+		"PhysicsSettingCount": 3,
+		"TotalInputCount": 5,
+		"TotalOutputCount": 3,
+		"VertexCount": 6,
 		"Fps": 60,
 		"EffectiveForces": {
 			"Gravity": {
@@ -24,6 +24,10 @@
 			{
 				"Id": "PhysicsSetting2",
 				"Name": "Breath Sway"
+			},
+			{
+				"Id": "PhysicsSetting3",
+				"Name": "IrisBounce"
 			}
 		]
 	},
@@ -144,6 +148,76 @@
 					"Delay": 0.5,
 					"Acceleration": 1.5,
 					"Radius": 20
+				}
+			],
+			"Normalization": {
+				"Position": {
+					"Minimum": -10,
+					"Default": 0,
+					"Maximum": 10
+				},
+				"Angle": {
+					"Minimum": -10,
+					"Default": 0,
+					"Maximum": 10
+				}
+			}
+		},
+		{
+			"Id": "PhysicsSetting3",
+			"Input": [
+				{
+					"Source": {
+						"Target": "Parameter",
+						"Id": "ParamEyeLOpen"
+					},
+					"Weight": 50,
+					"Type": "X",
+					"Reflect": false
+				},
+				{
+					"Source": {
+						"Target": "Parameter",
+						"Id": "ParamEyeROpen"
+					},
+					"Weight": 50,
+					"Type": "X",
+					"Reflect": false
+				}
+			],
+			"Output": [
+				{
+					"Destination": {
+						"Target": "Parameter",
+						"Id": "ParamEyeBallY"
+					},
+					"VertexIndex": 1,
+					"Scale": 0.07,
+					"Weight": 100,
+					"Type": "Angle",
+					"Reflect": true
+				}
+			],
+			"Vertices": [
+				{
+					"Position": {
+						"X": 0,
+						"Y": 0
+					},
+					"Mobility": 1,
+					"Delay": 1,
+					"Acceleration": 1,
+					"Radius": 0
+				},
+				{
+					"Position": {
+						"X": 0,
+						"Y": 3
+					},
+					"Mobility": 0.7,
+					"Delay": 0.9,
+					"Acceleration": 3,
+					"Radius": 3
 				}
 			],
 			"Normalization": {

@@ -14,10 +14,43 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
+    # basic idea: maria lights up candles and tells about her situation
     scene black
-    show maria idle:
+    show candle notlit # TODO
+    maria "It's getting late. I should light the candles."
+
+    # TODO sound of lighting up the candle
+    show candle lit # TODO
+    maria "Though, there won't be coming anyone here tonight probably."
+
+    "(You hear sounds of water droplets from outside)"
+
+    play music "audio/Prelude in C.mp3"
+    maria "Oh, it's starting to rain again."
+
+    scene black
+    show maria idle iris_right brows_updown:
         anchor (0.5, 0.5)
         ypos 1.35 xpos 0.45
+    maria "Well, that's to be expected from the rainy season."
+    show maria iris_center brows_neutral
+    maria "The rain doesn't know when to stop. Just like a soul that doesn't know jesus, floating without purpose."
+
+    show maria brows_down head_back eyes_closed_up mouth_smile brows_up
+    maria "The Lord will give everyone showers of rain and green growth in the field. ~ Zechariah 10:1"
+
+    show maria eyes_squint head_what
+    maria "What was the point of building a chapel in the middle of nowhere, if no one is going to come here to pray?"
+
+    maria "Well, "
+
+
+    # TODO Topic: its starting to rain
+
+    # TODO Topic: rain is getting heavier
+
+    scene black
+    
 
     "Welcome to the game!"
 

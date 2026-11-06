@@ -16,68 +16,109 @@ label start:
 
     # basic idea: maria lights up candles and tells about her situation
     scene black
-    show candle notlit # TODO
+    #show candle notlit # TODO
+
+    "The chapel is dimly lit by the last traces of daylight."
+    
     maria "It's getting late. I should light the candles."
 
+    # TODO sound of match
+    "*Scrrrch*"
+
     # TODO sound of lighting up the candle
-    show candle lit # TODO
-    maria "Though, there won't be coming anyone here tonight probably."
+    #show candle lit # TODO
+    # TODO sound of match fire
+    "*fwoosh*"
 
-    "(You hear sounds of water droplets from outside)"
-
-    play music "audio/Prelude in C.mp3"
-    maria "Oh, it's starting to rain again."
-
-    scene black
-    show maria idle iris_right brows_updown:
+    show maria idle mouth_smile:
         anchor (0.5, 0.5)
         ypos 1.35 xpos 0.45
+
+    maria "There, that's better."
+
+    show maria eyes_squint
+    maria "God said: \"Let there be light.\" And there was light! ~ Genesis 1:3"
+
+    show maria eyes_blink iris_left
+    "Maria looks around the otherwise empty chapel."
+
+    show maria iris_center brows_updown
+    maria "Though, I doubt we'll be having any visitors tonight."
+
+    # TODO sfx?
+    show maria mouth_smile eyes_closed_up
+    "She starts lighting another candle."
+
+    show maria eyes_blink
+    maria "What is the use of a chapel, without worshipers or visitors?"
+
+    maria "A chapel should be a place where people come to find the Lord, after all."
+
+    # TODO rain sound
+    "The sound of water droplets can be heard from outside."
+
+    maria "Oh, it's starting to rain! ... again."
+
+    play music "audio/Prelude in C.mp3"
+
     maria "Well, that's to be expected from the rainy season."
-    show maria iris_center brows_neutral
-    maria "The rain doesn't know when to stop. Just like a soul that doesn't know jesus, floating without purpose."
 
-    show maria brows_down head_back eyes_closed_up mouth_smile brows_up
-    maria "The Lord will give everyone showers of rain and green growth in the field. ~ Zechariah 10:1"
+    maria "The rain falls on the righteous and the unrighteous alike ~ Matthew 5:45"
 
-    show maria eyes_squint head_what
-    maria "What was the point of building a chapel in the middle of nowhere, if no one is going to come here to pray?"
+    "The rain starts to get heavier, and the sound of water droplets from outside becomes louder."
 
-    maria "Well, "
+    maria "And apparently, He has decided that we need all of it."
 
+    "Maria has finished lighting the candles on this spot and walks toward the other side of the chapel."
 
-    # TODO Topic: its starting to rain
+    maria "Still, I suppose there is a reason this chapel was built here, in the middle of nowhere."
 
-    # TODO Topic: rain is getting heavier
+    maria "The mountain road can be quite dangerous during the rainy season."
 
-    scene black
+    maria "Travellers caught in the rain sometimes have nowhere else to go."
+
+    maria "And a warm dry chapel is certainly better than a cold chapel!"
+
+    maria "Actually there used to be a lot of accidents here during the rainy season, at least that's what my grandfather used to tell me."
+
+    maria "Apparently, my great-great-grandfather helped building this chapel for that reason, and supposedly, there have not been any serious accidents since then."
+
+    maria "Before you were born, I set you apart for my holy purpose. ~ Jeremiah 1:5"
+
+    maria "It's a wonderful feeling, knowing that the Lord's house can offer shelter to those in need."
+
+    maria "Though most of the time, it only shelters me... from the constant bragging of my sister at home."
+
+    "Maria pauses for a moment, looking at the rain outside."
+
+    maria "I wonder how my sister Camilla is doing in Willowe."
+
+    maria "She is probably busy with her potion shop. She is always busy with that."
+
+    maria "Unlike some other people, who get sent to the middle of nowhere to take care of a chapel."
+
+    "Maria shakes her head and smiles."
+
+    maria "But I shouldn't complain. The Lord has chosen this path for me, and I should walk it faithfully."
+
+    maria "Though I do wish the path had a few more people on it..."
+
+    # TODO sfx with rain and thunder taking over
+    "The rain is getting even more intense outside."
+
+    maria "It sounds like someone did not eat up their meal yesterday."
+
+    maria "At least, that's something my parents used to say: 'If you don't eat up, there will be bad weather tomorrow.'"
+
+    maria "Well, it's not going to stop anytime soon. Just like a soul that doesn't know Jesus, floating without purpose."
     
+    "Maria walks over to light another candle, briefly turning her back to the window."
 
-    "Welcome to the game!"
+    stop music fadeout 2.0 
+    "..."
 
-    maria "Once more the shriek of the Gryphon, the squeaking of the Lizard’s slate-pencil, and the choking of the suppressed guinea-pigs, filled the air, mixed up with the distant sobs of the miserable Mock Turtle."
-
-    show maria brows_up
-    voice "voice/na08.ogg"
-    maria "Once more the shriek of the Gryphon, the squeaking of the Lizard’s slate-pencil, and the choking of the suppressed guinea-pigs, filled the air, mixed up with the distant sobs of the miserable Mock Turtle."
-
-    show maria eyes_squint brows_angry
-    voice "voice/alice153.ogg"
-    maria "'You are old', said the youth, \n'one would hardly suppose\n{space=30}That your eye was as steady as ever;\nYet you balanced an eel \non the end of your nose—\n{space=30}What made you so awfully clever?'"
-
-    show maria eyes_blink iris_sad brows_down
-    voice "voice/alice063.ogg"
-    maria "I shall be punished for it now, I suppose, by being drowned in my own tears! That will be a queer thing, to be sure! However, everything is queer to-day."
-
-    show maria head_sad
-    voice "voice/alice033.ogg"
-    maria "(Oh, my poor little feet, I wonder who will put on your shoes and stockings for you now, dears? I’m sure I shan’t be able!)"
-
-    show maria head_forward eyes_squint brows_up iris_center
-    voice "voice/alice018.ogg"
-    maria "Now, Dinah, tell me the truth: did you ever eat a bat?"
-
-
-    scene black
+    # tODO crash boom ouw
+    
 
     show nana idle brows_up mouth_neutral:
         anchor (0.5, 0.5)

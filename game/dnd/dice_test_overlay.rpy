@@ -25,9 +25,9 @@ screen test_result_popup(message, success, roll_value, bonus_tooltip=""):
     modal False
 
     if success:
-        on "show" action Play("sound", "sfx/roll_success.ogg")
+        on "show" action Play("uisound", "sfx/roll_success.ogg")
     else:
-        on "show" action Play("sound", "sfx/roll_failed.ogg")
+        on "show" action Play("uisound", "sfx/roll_failed.ogg")
     
     $ result_color = "#00ff00" if success else "#ff4444"
 

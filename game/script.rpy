@@ -48,35 +48,46 @@ label start:
     "The chapel is dimly lit by the last traces of daylight."
     
     show candle at candle_pos, candle_unlit
+    $ show_character_sheet_overlay = True
     maria "It's getting late. I should light the candles."
 
-    # TODO sound of match
-    "*Scrrrch*"
+    play sound "sfx/get_match.ogg"
+    "Maria is preparing the match to light the first candle."
 
-    # TODO sound of lighting up the candle
-    # TODO sound of match fire
+    maria "And God said: \"Let there be light.\""
+
+    # "She strikes the match, and..."
+
+    if not maria_sheet.ability_test("dex", 12):
+        play sound "sfx/match_breaks.ogg"
+        maria "...but the match broke out of spite..."
+
+        maria "Let me try again."
+
+        if not maria_sheet.ability_test("dex", 12):
+            play sound "sfx/match_breaks2.ogg"
+            "Another match is struck, but it breaks again."
+
+            while not maria_sheet.ability_test("dex", 12):
+                play sound "sfx/match_breaks.ogg"
+                "And another one."
+
     show candle flame_on at candle_pos, candle_lit
-    "*fwoosh*"
-
-    #show maria idle mouth_smile at maria_pos
-
-
-    maria "There, that's better."
-
-    #show maria eyes_squint
-    maria "God said: \"Let there be light.\" And there was light! ~ Genesis 1:3"
+    play sound "sfx/match_on.ogg"
+    play ambient "sfx/candle_sounds.ogg" fadein 3.0
+    maria "And there was light! ~ Genesis 1:3"
 
     # end candle scene
     scene black
-    $ show_character_sheet_overlay = True # enable character sheet once maria is visible
+    
     show maria idle iris_left mouth_neutral at maria_pos
     "Maria looks around the otherwise empty chapel."
 
     show maria iris_center brows_updown
     maria "Though, I doubt we'll be having any visitors tonight."
 
-    # TODO sfx?
     show maria eyes_squint brows_neutral
+    play sound "sfx/match_on.ogg"
     "She starts lighting another candle."
 
     show maria eyes_blink iris_right brows_down

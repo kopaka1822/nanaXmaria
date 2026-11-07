@@ -137,7 +137,7 @@ label start:
     maria "At least, that's something my parents used to say: 'If you don't eat up, there will be bad weather tomorrow.'"
 
     show maria eyes_blink brows_neutral mouth_neutral
-    maria "Well, it's not going to stop anytime soon. Just like a soul that doesn't know Jesus, wandering around without purpose."
+    maria "Well, it's not going to stop anytime soon. Just like a soul that doesn't know Jesus, wandering around until damnation."
     
     show maria brows_neutral mouth_neutral:
         ease 0.5 xoffset -400

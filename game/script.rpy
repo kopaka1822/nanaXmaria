@@ -6,6 +6,18 @@ transform nana_pos:
     anchor (0.5, 0.5)
     ypos 1.15 xpos 0.45
 
+default maria_sheet = CharacterSheet(
+    name="Maria", 
+    ability_values={"str": 8, "dex": 12, "con": 10, "int": 10, "wis": 14, "cha": 8}, 
+    skill_values={"religion": 6}
+)
+default nana_sheet = CharacterSheet(
+    name="Nana",
+    ability_values={"str": 12, "dex": 6, "con": 12, "int": 14, "wis": 10, "cha": 6},
+    skill_values={"arcana": 2, "nature": 2}
+)
+default player = maria_sheet # in the first run, the player is maria (This variable is used to display the character sheet)
+
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -37,6 +49,7 @@ label start:
 
     # end candle scene
     scene black
+    $ show_character_sheet_overlay = True # enable character sheet once maria is visible
     show maria idle iris_left mouth_neutral at maria_pos
     "Maria looks around the otherwise empty chapel."
 

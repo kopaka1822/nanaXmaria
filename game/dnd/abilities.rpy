@@ -29,12 +29,12 @@ init -100 python:
         "str": {
             "display": _("Strength"),
             "short_display": _("STR"),
-            "description": _("Physical strength. Affects intimidation rolls."),
+            "description": _("Physical strength. Affects intimidation and athletics rolls."),
         },
         "dex": {
             "display": _("Dexterity"),
             "short_display": _("DEX"),
-            "description": _("Agility, reflexes and balance."),
+            "description": _("Agility, reflexes and balance. Affects acrobatics, stealth, and sleight of hand rolls."),
         },
         "con": {
             "display": _("Constitution"),
@@ -44,17 +44,17 @@ init -100 python:
         "int": {
             "display": _("Intelligence"),
             "short_display": _("INT"),
-            "description": _("Knowledge and mental acuity. Affects history, arcana, and investigation rolls."),
+            "description": _("Knowledge and mental acuity. Affects history, arcana, investigation, nature, and religion rolls."),
         },
         "wis": {
             "display": _("Wisdom"),
             "short_display": _("WIS"),
-            "description": _("Awareness and intuition. Affects insight, perception, and night vision rolls."),
+            "description": _("Awareness and intuition. Affects insight, perception, animal handling, and medicine rolls."),
         },
         "cha": {
             "display": _("Charisma"),
             "short_display": _("CHA"),
-            "description": _("Personal charm. Affects deception, performance, and persuasion rolls"),
+            "description": _("Personal charm. Affects deception, performance, and persuasion rolls."),
         },
     }
 

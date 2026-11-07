@@ -77,10 +77,13 @@ label start:
     show maria eyes_closed_up brows_down mouth_smile
     maria "Well, that's to be expected from the rainy season."
 
-    show maria eyes_squint mouth_neutral brows_neutral
-    maria "The rain falls on the righteous and the unrighteous alike ~ Matthew 5:45"
+    if maria_sheet.skill_test("religion", 10):
+        show maria eyes_squint mouth_neutral brows_neutral
+        maria "The rain falls on the righteous and the unrighteous alike ~ Matthew 5:45"
+    else:
+        "..."
 
-    show maria eyes_blink iris_think mouth_frown
+    show maria eyes_blink mouth_neutral brows_neutral iris_think mouth_frown
     "The rain starts to get heavier, and the sound of water droplets from outside becomes louder."
 
     show maria iris_center brows_updown mouth_neutral
@@ -109,10 +112,11 @@ label start:
     show maria iris_center brows_down
     maria "Apparently, my great-great-grandfather helped building this chapel for that reason, and supposedly, there have not been any serious accidents since then."
 
-    show maria eyes_closed_up brows_neutral mouth_smile
-    maria "Before you were born, I set you apart for my holy purpose. ~ Jeremiah 1:5"
+    if maria_sheet.skill_test("religion", 12):
+        show maria eyes_closed_up brows_neutral mouth_smile
+        maria "Before you were born, I set you apart for my holy purpose. ~ Jeremiah 1:5"
 
-    show maria eyes_blink brows_up
+    show maria eyes_blink brows_up mouth_smile
     maria "It's a wonderful feeling, knowing that the Lord's house can offer shelter to those in need."
 
     show maria iris_right brows_neutral mouth_neutral eyes_squint

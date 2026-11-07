@@ -1,5 +1,4 @@
 init -100 python:
-    # game variant that determines current set of abilities / skills
     import random
 
     # Internal handles for abilities and skills

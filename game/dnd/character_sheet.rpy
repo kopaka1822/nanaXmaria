@@ -154,7 +154,7 @@ init -90 python:
             success = self._success_from_roll(raw, mod, dc)
 
             # auto-highlight used ability for ~5s
-            cs_mark_ability_highlight(ability_handle, 5.0)
+            cs_mark_ability_highlight(self.name, ability_handle, 5.0)
 
             # show popup with result
             ability_display = get_ability_display(ability_handle)
@@ -190,7 +190,7 @@ init -90 python:
             success = self._success_from_roll(raw, mod, dc)
 
             # auto-highlight used skill + its base ability for ~5s
-            cs_mark_skill_highlight(skill_handle, 5.0)
+            cs_mark_skill_highlight(self.name, skill_handle, 5.0)
 
             # show popup with result
             skill_display = get_skill_display(skill_handle)

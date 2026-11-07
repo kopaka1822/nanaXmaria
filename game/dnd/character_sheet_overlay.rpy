@@ -16,7 +16,7 @@ screen character_sheet_overlay():
                 text _(player.get_name()) style "cs_header"
 
                 for ability_handle in ABILITIES:
-                    $ ability_is_hl = cs_is_ability_highlighted(ability_handle)
+                    $ ability_is_hl = cs_is_ability_highlighted(player.get_name(), ability_handle)
                     $ ability_label_color = "#ffff66" if ability_is_hl else "#dddddd"
                     $ ability_value_color = "#ffff66" if ability_is_hl else "#ffffff"
                     $ ability_bonus_color = "#ffff66" if ability_is_hl else "#aaaaaa"
@@ -52,7 +52,7 @@ screen character_sheet_overlay():
                     null height 14
                     text _("Skills") style "cs_header"
                     for skill_handle in active_skills:
-                        $ skill_is_hl = cs_is_skill_highlighted(skill_handle)
+                        $ skill_is_hl = cs_is_skill_highlighted(player.get_name(), skill_handle)
                         $ skill_label_color = "#ffff66" if skill_is_hl else "#dddddd"
                         $ skill_value_color = "#ffff66" if skill_is_hl else "#ffffff"
 
@@ -137,6 +137,7 @@ style cs_bonus_button:
     bottom_padding 0
 
 # for auto highlighting in the character sheet: tells when to stop highlighting abilities/skills after a test is performed
+default cs_highlight_player = None # name of the player whose abilities/skills should be highlighted
 default cs_highlight_ability = None
 default cs_highlight_ability_until = 0.0
 default cs_highlight_skill = None
@@ -149,16 +150,18 @@ init python:
     config.overlay_screens.append("character_sheet_overlay")
 
     # marks ability and clears skill highlight
-    def cs_mark_ability_highlight(ability_handle, duration=5.0):
+    def cs_mark_ability_highlight(player_name, ability_handle, duration=5.0):
         # Overwrite any previous ability highlight with this one and set expiry.
+        store.cs_highlight_player = player_name
         store.cs_highlight_ability = ability_handle
         store.cs_highlight_ability_until = time.time() + duration
         store.cs_highlight_skill = None  # Clear any skill highlight since we're now highlighting an ability.
         renpy.restart_interaction()
 
     # marks base ability and skill highlight
-    def cs_mark_skill_highlight(skill_handle, duration=5.0):
+    def cs_mark_skill_highlight(player_name, skill_handle, duration=5.0):
         # Overwrite any previous skill highlight with this one and set expiry.
+        store.cs_highlight_player = player_name
         store.cs_highlight_skill = skill_handle
         store.cs_highlight_skill_until = time.time() + duration
         # highlight base ability of the skill as well
@@ -167,149 +170,13 @@ init python:
         store.cs_highlight_ability_until = store.cs_highlight_skill_until
         renpy.restart_interaction()
 
-    def cs_is_ability_highlighted(ability_handle):
+    def cs_is_ability_highlighted(player_name, ability_handle):
+        if store.cs_highlight_player != player_name: return False
         return (store.cs_highlight_ability == ability_handle and
                 store.cs_highlight_ability_until > time.time())
 
-    def cs_is_skill_highlighted(skill_handle):
+    def cs_is_skill_highlighted(player_name, skill_handle):
+        if store.cs_highlight_player != player_name: return False
         return (store.cs_highlight_skill == skill_handle and
                 store.cs_highlight_skill_until > time.time())
 
-transform test_popup_fade:
-    alpha 0.0
-    linear 0.1 alpha 1.0   # fade in over 1s
-    pause 3.0
-    linear 2.0 alpha 0.0   # fade out over 2s
-
-transform test_dice_shake:
-    xoffset 0
-    yoffset 0
-    block:
-        linear 0.04 xoffset -3 yoffset 1
-        linear 0.04 xoffset 3 yoffset -1
-        repeat 5
-    xoffset 0
-    yoffset 0
-
-style cs_popup_label:
-    size 28
-    color "#dddddd"
-    min_width 100
-    bold True
-
-screen test_result_popup(message, success, roll_value, bonus_tooltip=""):
-    zorder 400
-    modal False
-
-    if success:
-        on "show" action Play("sound", "sfx/roll_success.ogg")
-    else:
-        on "show" action Play("sound", "sfx/roll_failed.ogg")
-    
-    $ result_color = "#00ff00" if success else "#ff4444"
-
-    frame:
-        at test_popup_fade
-        xalign 0.23
-        yalign 0.72
-        background Frame(Solid("#2f2f2fcc"), 6, 6)
-        padding (20, 15)
-
-        hbox:
-            spacing 14
-
-            fixed:
-                at test_dice_shake
-                xysize (64, 64)
-
-                add "images/dice_template.png":
-                    xalign 0.5
-                    yalign 0.5
-                    zoom 0.2
-
-                text str(roll_value):
-                    xalign 0.5
-                    yalign 0.6
-                    color "#000000"
-                    size 20
-                    bold True
-
-            fixed:
-                xfit True
-                ysize 64
-
-                textbutton message:
-                    yalign 0.5
-                    style "cs_label_button"
-                    text_style "cs_popup_label"
-                    text_size 28
-                    text_color result_color
-                    action NullAction()
-                    tooltip bonus_tooltip
-
-    $ tooltip = GetTooltip()
-
-    if tooltip:
-        nearrect:
-            focus "tooltip"
-            prefer_top True
-
-            frame:
-                xalign 0.5
-                xmaximum 500
-                background Frame(Solid("#1e1e1ee6"), 6, 6)
-                padding (14, 10)
-
-                text tooltip:
-                    size 22
-                    color "#dddddd"
-
-    timer 5.0 action Hide("test_result_popup")
-
-transform stamp_popup_fade:
-    alpha 0.0
-    linear 0.1 alpha 1.0   # fade in over 1s
-    pause 2.0
-    linear 1.0 alpha 0.0   # fade out over 2s
-
-style stamp_label:
-    size 50
-    color "#000000"
-    bold False
-
-screen suspicion_success_popup(success=True):
-    zorder 400
-    modal False
-
-    $ stamp_tint = "#c4fdc4" if success else "#fdc4c4"
-
-    if success:
-        on "show" action Play("sound", "sfx/sus_succeed.ogg")
-    else:
-        on "show" action Play("sound", "sfx/sus_failed.ogg")
-
-    fixed:
-        at stamp_popup_fade
-        xfill True
-        yfill True
-        xalign 0.5
-        yalign 0.5
-
-        add "images/sus_wax.png":
-            anchor (0.5, 0.5)
-            pos (0.5, 0.5)
-            matrixcolor TintMatrix(stamp_tint)
-
-        text _("Suspicion"):
-            style "stamp_label"
-            anchor (0.5, 0.5)
-            pos (0.5, 0.48)
-
-        $ stamp_result_text = _("correct") if success else _("wrong")
-
-        text stamp_result_text:
-            style "stamp_label"
-            anchor (0.5, 0.5)
-            pos (0.5, 0.55)
-
-    timer 5.0 action Hide("suspicion_success_popup")

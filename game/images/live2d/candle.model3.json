@@ -6,7 +6,17 @@
 			"candle.1024/texture_00.png"
 		],
 		"Physics": "candle.physics3.json",
-		"DisplayInfo": "candle.cdi3.json"
+		"DisplayInfo": "candle.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "candle_lit",
+				"File": "candle_lit.exp3.json"
+			},
+			{
+				"Name": "candle_off",
+				"File": "candle_off.exp3.json"
+			}
+		]
 	},
 	"Groups": [
 		{
@@ -19,5 +29,6 @@
 			"Name": "LipSync",
 			"Ids": []
 		}
-	]
+	],
+	"HitAreas": []
 }

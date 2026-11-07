@@ -6,6 +6,22 @@ transform nana_pos:
     anchor (0.5, 0.5)
     ypos 1.15 xpos 0.45
 
+transform candle_pos:
+    anchor (0.5, 0.5)
+    ypos 0.5 xpos 0.5
+
+transform candle_unlit_and_dark:
+    matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(-0.1)
+
+transform candle_unlit:
+    matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(0.0)
+
+transform candle_lit:
+    matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(0.17)
+    ease 2.0 matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(0.21)
+    ease 2.0 matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(0.17)
+    repeat
+
 default maria_sheet = CharacterSheet(
     name="Maria", 
     ability_values={"str": 8, "dex": 12, "con": 10, "int": 10, "wis": 14, "cha": 8}, 
@@ -26,21 +42,24 @@ label start:
 
     # basic idea: maria lights up candles and tells about her situation
     scene black
-    #show candle notlit # TODO
+
+    show candle idle flame_off at candle_pos, candle_unlit_and_dark
 
     "The chapel is dimly lit by the last traces of daylight."
     
+    show candle at candle_pos, candle_unlit
     maria "It's getting late. I should light the candles."
 
     # TODO sound of match
     "*Scrrrch*"
 
     # TODO sound of lighting up the candle
-    #show candle lit # TODO
     # TODO sound of match fire
+    show candle flame_on at candle_pos, candle_lit
     "*fwoosh*"
 
     #show maria idle mouth_smile at maria_pos
+
 
     maria "There, that's better."
 

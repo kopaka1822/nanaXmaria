@@ -1,0 +1,32 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamLit",
+			"GroupId": "",
+			"Name": "Lit"
+		},
+		{
+			"Id": "ParamSwayX",
+			"GroupId": "",
+			"Name": "SwayX"
+		},
+		{
+			"Id": "ParamScaleX",
+			"GroupId": "",
+			"Name": "ScaleX"
+		},
+		{
+			"Id": "ParamScaleY",
+			"GroupId": "",
+			"Name": "ScaleY"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "Breath"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": []
+}

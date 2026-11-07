@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "candle.moc3",
+		"Textures": [
+			"candle.1024/texture_00.png"
+		],
+		"Physics": "candle.physics3.json",
+		"DisplayInfo": "candle.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

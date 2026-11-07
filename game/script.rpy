@@ -96,8 +96,9 @@ label start:
     show maria iris_sad mouth_pout
     maria "A chapel should be a place where people come to find the Lord, after all."
 
-    # TODO rain sound
     show maria iris_center brows_neutral mouth_neutral
+    play ambient2 "sfx/rain.ogg" volume 0.2 fadein 1.0
+    stop ambient fadeout 10.0 # fade out the candle sounds
     "The sound of water droplets can be heard from outside."
 
     show maria brows_up
@@ -114,6 +115,7 @@ label start:
         "..."
 
     show maria eyes_blink mouth_neutral brows_neutral iris_think mouth_frown
+    play ambient2 "sfx/rain.ogg" volume 0.5 fadein 1.0
     "The rain starts to get heavier, and the sound of water droplets from outside becomes louder."
 
     show maria iris_center brows_updown mouth_neutral
@@ -175,6 +177,7 @@ label start:
 
     # TODO sfx with rain and thunder taking over
     show maria eyes_blink brows_neutral
+    play ambient2 "sfx/rain.ogg" volume 0.8
     "The rain is getting even more intense outside."
 
     show maria brows_down

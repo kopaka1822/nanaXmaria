@@ -35,14 +35,7 @@ default nana_sheet = CharacterSheet(
 default player = maria_sheet # in the first run, the player is maria (This variable is used to display the character sheet)
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    # basic idea: maria lights up candles and tells about her situation
     scene black
-
     show candle idle flame_off at candle_pos, candle_unlit_and_dark
 
     "The chapel is dimly lit by the last traces of daylight."
@@ -52,15 +45,15 @@ label start:
     maria "It's getting late. I should light the candles."
 
     play sound "sfx/get_match.ogg"
-    "Maria is preparing the match to light the first candle."
+    "Maria takes a match out of a box."
 
-    maria "And God said: \"Let there be light.\""
+    maria "And God said, \"Let there be light.\""
 
     # "She strikes the match, and..."
 
     if not maria_sheet.ability_test("dex", 12):
         play sound "sfx/match_breaks.ogg"
-        maria "...but the match broke out of spite..."
+        maria "but the match snapped out of spite..."
 
         maria "Let me try again."
 
@@ -97,7 +90,7 @@ label start:
     maria "A chapel should be a place where people come to find the Lord, after all."
 
     show maria iris_center brows_neutral mouth_neutral
-    play ambient2 "sfx/rain.ogg" volume 0.2 fadein 1.0
+    play ambient2 "sfx/rain.ogg" volume 0.4 fadein 1.0
     stop ambient fadeout 10.0 # fade out the candle sounds
     "The sound of water droplets can be heard from outside."
 
@@ -115,7 +108,7 @@ label start:
         "..."
 
     show maria eyes_blink mouth_neutral brows_neutral iris_think mouth_frown
-    play ambient2 "sfx/rain.ogg" volume 0.5 fadein 1.0
+    play ambient2 "sfx/rain.ogg" volume 0.6 fadein 1.0
     "The rain starts to get heavier, and the sound of water droplets from outside becomes louder."
 
     show maria iris_center brows_updown mouth_neutral
@@ -142,7 +135,7 @@ label start:
     maria "Actually there used to be a lot of accidents here during the rainy season, at least that's what my grandfather used to tell me."
 
     show maria iris_center brows_down
-    maria "Apparently, my great-great-grandfather helped building this chapel for that reason, and supposedly, there have not been any serious accidents since then."
+    maria "Apparently, my great-great-grandfather helped build this chapel for that reason, and supposedly, there have not been any serious accidents since then."
 
     if maria_sheet.skill_test("religion", 12):
         show maria eyes_closed_up brows_neutral mouth_smile
@@ -152,7 +145,7 @@ label start:
     maria "It's a wonderful feeling, knowing that the Lord's house can offer shelter to those in need."
 
     show maria iris_right brows_neutral mouth_neutral eyes_squint
-    maria "Though most of the time, it only shelters me... from the constant bragging of my sister at home."
+    maria "Though most of the time, it only shelters me... from my sister's constant bragging back home."
 
     show maria iris_left eyes_blink
     "Maria pauses for a moment, looking at the rain outside."
@@ -161,7 +154,7 @@ label start:
     maria "I wonder how my sister Camilla is doing in Willowe."
 
     show maria iris_center brows_neutral
-    maria "She is probably busy with her potion shop. She is always busy with that."
+    maria "She is probably busy with her potion shop. She always is."
 
     show maria iris_right eyes_squint
     maria "Unlike some other people, who get sent to the middle of nowhere to take care of a chapel."
@@ -181,7 +174,7 @@ label start:
     "The rain is getting even more intense outside."
 
     show maria brows_down
-    maria "It sounds like someone did not eat up their meal yesterday."
+    maria "Ohh, sounds like someone didn't finish their dinner yesterday!"
 
     show maria mouth_smile eyes_closed_up
     maria "At least, that's something my parents used to say: 'If you don't eat up, there will be bad weather tomorrow.'"

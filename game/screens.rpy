@@ -365,6 +365,17 @@ screen main_menu():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
+    hbox:
+        style_prefix "navigation"
+        xalign 1.0
+        yalign 0.0
+        xoffset -30
+        yoffset 30
+        spacing 20
+
+        textbutton "English" action Language(None)
+        textbutton "Deutsch" action Language("german")
+
     if gui.show_name:
 
         vbox:

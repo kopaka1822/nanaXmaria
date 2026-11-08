@@ -122,13 +122,13 @@ translate german start_b2330b5d:
 translate german start_c6d83883:
 
     # maria "And apparently, He has decided that we need all of it."
-    maria "Und scheinbar hat Er beschlossen, dass wir es ziemlich nötig haben."
+    maria "Und scheinbar hat er beschlossen, dass wir es ziemlich nötig haben."
 
 # game/script.rpy:119
 translate german start_563d2e89:
 
     # "Maria has finished lighting the candles on this spot and walks toward the other side of the chapel."
-    "Maria hat alle Kerzen vor ihr angezündet und geht zur anderen Stelle in der Kapelle."
+    "Maria hat alle Kerzen vor ihr angezündet und geht zur einer anderen Stelle in der Kapelle."
 
 # game/script.rpy:123
 translate german start_0160e950:
@@ -164,7 +164,7 @@ translate german start_59f1e0f6:
 translate german start_a0ea4e2c:
 
     # maria "Apparently, my great-great-grandfather helped build this chapel for that reason, and supposedly, there have not been any serious accidents since then."
-    maria "Angeblich war mein Ururgroßvater sogar am Bau dieser Kapelle beteiligt. Und set dem soll es keine schlimmen Unfälle mehr gegeben haben."
+    maria "Angeblich war mein Ururgroßvater sogar am Bau dieser Kapelle beteiligt. Und seit dem soll es keine schlimmen Unfälle mehr gegeben haben."
 
 # game/script.rpy:142
 translate german start_cd580f74:
@@ -176,7 +176,7 @@ translate german start_cd580f74:
 translate german start_d56d7bf4:
 
     # maria "It's a wonderful feeling, knowing that the Lord's house can offer shelter to those in need."
-    maria "Es ist schon schön zu wissen, dass das Haus des Herrn allen einen Schutz bieten kann."
+    maria "Es ist schon schön zu wissen, dass das Haus des Herrn jedem Schutz bieten kann."
 
 # game/script.rpy:148
 translate german start_b6f9bcb3:
@@ -206,7 +206,7 @@ translate german start_e3593a9b:
 translate german start_d5b3ad27:
 
     # maria "Unlike some other people, who get sent to the middle of nowhere to take care of a chapel."
-    maria "Anders als gewisse andere Leute, die ans Ende der Welt geschickt werden, um auf eine Kappele aufzupassen."
+    maria "Anders als gewisse andere Leute, die ans Ende der Welt geschickt werden, um auf eine Kapelle aufzupassen."
 
 # game/script.rpy:163
 translate german start_f63fe8b6:
@@ -236,7 +236,7 @@ translate german start_1f4d85a8:
 translate german start_a34402c8:
 
     # maria "Ohh, sounds like someone didn't finish their dinner yesterday!"
-    maria "Oh, klingt, als hätte jemand seinen Teller nicht aufgegessen!"
+    maria "Oh, klingt als hätte jemand seinen Teller nicht aufgegessen!"
 
 # game/script.rpy:180
 translate german start_66e2ed5c:

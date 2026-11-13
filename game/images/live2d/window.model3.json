@@ -1,0 +1,33 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "window.moc3",
+		"Textures": [
+			"window.2048/texture_00.png"
+		],
+		"DisplayInfo": "window.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "window_nana_on",
+				"File": "window_nana_on.exp3.json"
+			},
+			{
+				"Name": "nana_off",
+				"File": "window_nana_off.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

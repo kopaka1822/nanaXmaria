@@ -26,7 +26,7 @@ translate german start_d5df405d:
 translate german start_1d0a000a:
 
     # maria "but the match snapped out of spite..."
-    maria "Doch er ahnte nicht, dass sein Streicholz bricht..."
+    maria "Doch er ahnte nicht, dass mein Streicholz bricht..."
 
 # game/script.rpy:58
 translate german start_d40f0fa3:

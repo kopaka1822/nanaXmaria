@@ -1,0 +1,103 @@
+{
+	"Version": 3,
+	"Meta": {
+		"Duration": 0.967,
+		"Fps": 30.0,
+		"Loop": true,
+		"AreBeziersRestricted": false,
+		"CurveCount": 3,
+		"TotalSegmentCount": 9,
+		"TotalPointCount": 30,
+		"UserDataCount": 0,
+		"TotalUserDataSize": 0
+	},
+	"Curves": [
+		{
+			"Target": "Parameter",
+			"Id": "ParamRain1Opacity",
+			"Segments": [
+				0,
+				0,
+				1,
+				0.056,
+				0,
+				0.111,
+				1,
+				0.167,
+				1,
+				1,
+				0.389,
+				1,
+				0.611,
+				0,
+				0.833,
+				0,
+				1,
+				0.878,
+				0,
+				0.922,
+				0,
+				0.967,
+				0
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "ParamRain2Opacity",
+			"Segments": [
+				0,
+				0.352,
+				1,
+				0.111,
+				0.16,
+				0.222,
+				0,
+				0.333,
+				0,
+				1,
+				0.389,
+				0,
+				0.444,
+				1,
+				0.5,
+				1,
+				1,
+				0.656,
+				1,
+				0.811,
+				0.686,
+				0.967,
+				0.41
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Id": "ParamRain3Opacity",
+			"Segments": [
+				0,
+				0.896,
+				1,
+				0.222,
+				0.64,
+				0.444,
+				0,
+				0.667,
+				0,
+				1,
+				0.722,
+				0,
+				0.778,
+				1,
+				0.833,
+				1,
+				1,
+				0.878,
+				1,
+				0.922,
+				0.974,
+				0.967,
+				0.931
+			]
+		}
+	]
+}

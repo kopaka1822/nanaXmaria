@@ -1,0 +1,32 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "Breath"
+		},
+		{
+			"Id": "NanaParam",
+			"GroupId": "",
+			"Name": "Nana"
+		},
+		{
+			"Id": "ParamRain1Opacity",
+			"GroupId": "",
+			"Name": "Rain1Opacity"
+		},
+		{
+			"Id": "ParamRain2Opacity",
+			"GroupId": "",
+			"Name": "Rain2Opacity"
+		},
+		{
+			"Id": "ParamRain3Opacity",
+			"GroupId": "",
+			"Name": "Rain3Opacity"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": []
+}

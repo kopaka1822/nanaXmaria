@@ -10,6 +10,10 @@ transform candle_pos:
     anchor (0.5, 0.5)
     ypos 0.5 xpos 0.5
 
+transform window_pos:
+    anchor (0.5, 0.5)
+    ypos 0.45 xpos 0.5
+
 transform candle_unlit_and_dark:
     matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(-0.1)
 
@@ -35,6 +39,8 @@ default nana_sheet = CharacterSheet(
 default player = maria_sheet # in the first run, the player is maria (This variable is used to display the character sheet)
 
 label start:
+    #jump window_scene
+
     scene black
     show candle idle flame_off at candle_pos, candle_unlit_and_dark
 
@@ -186,10 +192,30 @@ label start:
         ease 0.5 xoffset -400
     "Maria walks over to light another candle, briefly turning her back to the window."
 
-    stop music fadeout 2.0 
-    "..."
+label window_scene:
 
-    # tODO crash boom ouw
+    scene black
+    show chapel_window idle at window_pos
 
+    #stop music fadeout 2.0 
+
+    "The raindrops gently patter agains the chapel window, playing a soothing melody."
+
+    play sound "sfx/thunderstrike.ogg"
+    stop music
+    show chapel_window nana_on
+
+    show black as black2:
+        matrixcolor BrightnessMatrix(1.0)
+    "A sudden strike of lighting illuminates the scene."
+
+    show black as black2:
+        alpha 1.0
+        linear 0.5 alpha 0.0
+    "And for a brief moment, something appears right behind the window."
+
+    scene black
+    play sound "sfx/shatter.mp3"
+    "The sound of shattering glass echoes through the chapel and Maria turns around in shock."
 
     return

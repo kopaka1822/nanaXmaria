@@ -29,3 +29,5 @@ image maria = Live2D("images/live2d/maria.model3.json", zoom=0.5, base=1.0, defa
 image nana = Live2D("images/live2d/nana.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=NON_EXLUSIVES_LIVE2D, attribute_filter=live2d_attribute_filter, update_function=live2d_lipsync_callback("nana"))
 
 image candle = Live2D("images/live2d/candle.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=["flame_on", "flame_off"], attribute_filter=live2d_attribute_filter)
+
+image chapel_window = Live2D("images/live2d/window.model3.json", zoom=0.5, base=1.0, default_fade=0.0, loop=True, nonexclusive=["nana_on", "nana_off"], attribute_filter=live2d_attribute_filter)

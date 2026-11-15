@@ -6,6 +6,21 @@ transform nana_pos:
     anchor (0.5, 0.5)
     ypos 1.15 xpos 0.45
 
+transform nana_sit_pos:
+    anchor (0.5, 0.5)
+    zoom 0.5
+    ypos 0.55 xpos 0.75
+
+transform broom_floor_pos:
+    anchor (0.5, 0.5)
+    zoom 0.5
+    ypos 0.75 xpos 0.7
+
+transform maria_nana_sit_pos:
+    anchor (0.5, 0.5)
+    zoom 0.65
+    ypos 0.9 xpos 0.5
+
 transform candle_pos:
     anchor (0.5, 0.5)
     ypos 0.5 xpos 0.5
@@ -218,4 +233,13 @@ label window_scene:
     play sound "sfx/shatter.mp3"
     "The sound of shattering glass echoes through the chapel and Maria turns around in shock."
 
+    show broom_floor at broom_floor_pos
+    show nana_sit nana_sit_idle brows_down iris_sad mouth_frown head_sad at nana_sit_pos
+    show maria idle brows_neutral mouth_frown brows_up iris_right at maria_nana_sit_pos:
+        xoffset -400
+
+    $ show_character_sheet_overlay = True    
+    nana "Ouch, ouch, ouch! Oh no, potato salad! Are you alright?!"
+
+    maria "Potato salad?"
     return

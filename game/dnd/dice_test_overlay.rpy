@@ -61,7 +61,8 @@ screen test_result_popup(message, success, roll_value, bonus_tooltip=""):
                 xfit True
                 ysize 64
 
-                textbutton message:
+                # message = (name, result, "roll/dc"); !t translates at display time like other screen text
+                textbutton "[message[0]!t] [message[1]!t] {color=#ddd}([message[2]]){/color}":
                     yalign 0.5
                     style "cs_label_button"
                     text_style "cs_popup_label"

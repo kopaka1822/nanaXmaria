@@ -158,7 +158,7 @@ init -90 python:
 
             # show popup with result
             ability_display = get_ability_display(ability_handle)
-            result_text = "{} {} {{color=#ddd}}({}/{}){{/color}}".format(ability_display, _("succeeded") if success else _("failed"), raw+mod, dc)
+            result_text = (ability_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
             bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_ABILITY, ability_handle, mod)
             renpy.hide_screen("test_result_popup")
             renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)
@@ -194,7 +194,7 @@ init -90 python:
 
             # show popup with result
             skill_display = get_skill_display(skill_handle)
-            result_text = "{} {} {{color=#ddd}}({}/{}){{/color}}".format(skill_display, _("succeeded") if success else _("failed"), raw+mod, dc)
+            result_text = (skill_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
             bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_SKILL, skill_handle, mod)
             renpy.hide_screen("test_result_popup")
             renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)

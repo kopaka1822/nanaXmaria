@@ -40,7 +40,7 @@ screen character_sheet_overlay():
                             text_style "cs_bonus"
                             text_color ability_bonus_color
                             action NullAction()
-                            tooltip _("{bonus:+d} for all {ability} rolls.").format(
+                            tooltip force_translate(_("{bonus:+d} for all {ability} rolls.")).format(
                                 bonus=player.get_effective_ability_bonus(ability_handle),
                                 ability=get_ability_display(ability_handle)
                             )
@@ -66,12 +66,12 @@ screen character_sheet_overlay():
                                 action NullAction()
                                 tooltip get_skill_description(skill_handle)
 
-                            textbutton _("LV {lv}").format(lv=player.get_effective_skill_level(skill_handle)):
+                            textbutton force_translate(_("LV {lv}")).format(lv=player.get_effective_skill_level(skill_handle)):
                                 style "cs_bonus_button"
                                 text_style "cs_value"
                                 text_color skill_value_color
                                 action NullAction()
-                                tooltip _("{total:+d} for all {skill} rolls.\n   {base:+d} from {ability}\n   {skill_mod:+d} from {skill_name}").format(
+                                tooltip force_translate(_("{total:+d} for all {skill} rolls.\n   {base:+d} from {ability}\n   {skill_mod:+d} from {skill_name}")).format(
                                     total=player.get_effective_ability_bonus(get_skill_base_ability(skill_handle)) + player.get_effective_skill_level(skill_handle),
                                     skill=get_skill_display(skill_handle),
                                     base=player.get_effective_ability_bonus(get_skill_base_ability(skill_handle)),

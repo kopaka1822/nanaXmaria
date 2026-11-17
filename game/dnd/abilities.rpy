@@ -1,4 +1,4 @@
-init -100 python:
+﻿init -100 python:
     import random
 
     # Internal handles for abilities and skills
@@ -145,20 +145,24 @@ init -100 python:
         },
     }
 
+    def force_translate(text):
+        """Translates a marked string at runtime, because the translation system has trouble with composite strings"""
+        return renpy.substitute("[text!t]", {"text": text})
+
     def get_ability_display(handle):
-        return ABILITY_DATA[handle]["display"]
+        return force_translate(ABILITY_DATA[handle]["display"])
 
     def get_ability_short_display(handle):
-        return ABILITY_DATA[handle]["short_display"]
+        return force_translate(ABILITY_DATA[handle]["short_display"])
 
     def get_ability_description(handle):
-        return ABILITY_DATA[handle]["description"]
+        return force_translate(ABILITY_DATA[handle]["description"])
 
     def get_skill_display(handle):
-        return SKILL_DATA[handle]["display"]
+        return force_translate(SKILL_DATA[handle]["display"])
 
     def get_skill_description(handle):
-        return SKILL_DATA[handle]["description"]
+        return force_translate(SKILL_DATA[handle]["description"])
 
     def get_skill_base_ability(skill_handle):
         return SKILL_DATA[skill_handle]["ability"]

@@ -75,13 +75,13 @@ init -90 python:
                 base_ability_bonus = self.get_effective_ability_bonus(handle)
                 buff_bonus = total_bonus - base_ability_bonus
 
-                text = _("{total:+d} total for {ability} rolls.\n   {base:+d} from {ability}").format(
+                text = force_translate(_("{total:+d} total for {ability} rolls.\n   {base:+d} from {ability}")).format(
                     total=total_bonus,
                     ability=ability_display,
                     base=base_ability_bonus,
                 )
                 if buff_bonus:
-                    text += _("\n   {buffs:+d} from Buffs").format(buffs=buff_bonus)
+                    text += force_translate(_("\n   {buffs:+d} from Buffs")).format(buffs=buff_bonus)
                 return text
             
             # Buff target skill:
@@ -92,7 +92,7 @@ init -90 python:
             base_skill_bonus = self.get_effective_skill_level(handle)
             buff_bonus = total_bonus - base_ability_bonus - base_skill_bonus
 
-            text = _("{total:+d} total for {skill} rolls.\n   {base:+d} from {ability}\n   {skill_mod:+d} from {skill}").format(
+            text = force_translate(_("{total:+d} total for {skill} rolls.\n   {base:+d} from {ability}\n   {skill_mod:+d} from {skill}")).format(
                 total=total_bonus,
                 skill=skill_display,
                 base=base_ability_bonus,
@@ -100,7 +100,7 @@ init -90 python:
                 skill_mod=base_skill_bonus,
             )
             if buff_bonus:
-                text += _("\n   {buffs:+d} from Buffs").format(buffs=buff_bonus)
+                text += force_translate(_("\n   {buffs:+d} from Buffs")).format(buffs=buff_bonus)
             return text
 
         def get_effective_ability_level(self, ability_handle):

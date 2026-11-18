@@ -53,6 +53,14 @@ default nana_sheet = CharacterSheet(
 )
 default player = maria_sheet # in the first run, the player is maria (This variable is used to display the character sheet)
 
+init python:
+    # helper functions
+    def player_is_maria():
+        return player == maria_sheet
+
+    def player_is_nana():
+        return player == nana_sheet
+
 label start:
     #jump window_scene
 
@@ -241,5 +249,90 @@ label window_scene:
     $ show_character_sheet_overlay = True    
     nana "Ouch, ouch, ouch! Oh no, potato salad! Are you alright?!"
 
+    play music "audio/mozart sonata in c slow.ogg"
+    "Nana reaches out to the broom."
+
+    $ intimidation_chance = player.skill_success_rate("intimidation", 10)
+    $ medicine_chance = player.skill_success_rate("medicine", 16)
+    $ charisma_chance = player.ability_success_rate("cha", 18)
+    if player_is_maria():
+        menu:
+            "Potato salad?":
+                jump maria_menu_potato_salad
+            "Are you out of you mind? (Intimidation [intimidation_chance]\%)":
+                jump maria_menu_intimidation1
+            "Oh dear lord! Are you hurt? (Medicine [medicine_chance]\%)":
+                jump maria_menu_medicine1
+            "I suppose the door was too difficult to find? (Charisma [charisma_chance]\%)":
+                jump maria_menu_charisma1
+    else: # TODO jump to last default
+        jump nana_menu_potato_salad
+
+label maria_menu_potato_salad:
+    show maria brows_updown mouth_neutral iris_center head_what
     maria "Potato salad?"
-    return
+
+    show nana_sit mouth_pout
+    "Nana is still examining the broom, and does not appear to have heard Maria's question."
+
+    show maria head_neutral brows_neutral
+    show nana_sit mouth_bigsmile brows_up 
+    nana "Oh, thank goodness! You're alright!"
+
+    show nana_sit eyes_closed_up head_neutral iris_center
+    "Nana gives the broom a little hug before finally noticing Maria."
+
+    if player_is_maria():
+        if maria_sheet.skill_test("perception", 10):
+            "The broom makes a small rustling sound when Nana picks it up."
+        else:
+            "..."
+    
+    show nana_sit eyes_blink mouth_neutral brows_neutral
+    nana "Oh! Um, sorry! I didn't notice you! Did you say something?"
+
+    show maria mouth_smile brows_up
+    maria "Potato salad? Pray tell, is that the name of the broom?"
+
+    show nana_sit mouth_bigsmile brows_up
+    nana "Oh, yes! This is potato salad! And it's, um... just a normal broom. Nothing special!"
+
+    show nana_sit iris_right brows_neutral
+    if player_is_maria():
+        if maria_sheet.skill_test("insight", 10):
+            "Nana seems to be hiding something, but she is trying her best to act normal."
+        else:
+            "..."
+    show nana_sit iris_center mouth_smile
+    show maria iris_left brows_neutral
+    maria "It is an awfully peculiar name for something so ordinary."
+
+    show nana_sit iris_right
+    show maria iris_center
+    nana "Well, I suppose it is a bit peculiar."
+
+    show nana_sit iris_center mouth_bigsmile brows_up
+    nana "I named it after my favorite food!"
+
+    show maria mouth_neutral brows_neutral
+    "Nana looks at Maria with a smile and wide eyes, as if she is awaiting a compliment."
+
+    show nana_sit mouth_neutral brows_neutral
+    "Maria decides not to comment."
+
+    jump scene2
+
+label maria_menu_intimidation1:
+    "TODO"
+    jump scene2
+
+label maria_menu_medicine1:
+    "TODO"
+    jump scene2
+
+label maria_menu_charisma1:
+    "TODO"
+    jump scene2
+
+label scene2:
+    "The scene continues..."

@@ -254,7 +254,7 @@ label window_scene:
 
     $ intimidation_chance = player.skill_success_rate("intimidation", 10)
     $ medicine_chance = player.skill_success_rate("medicine", 16)
-    $ charisma_chance = player.ability_success_rate("cha", 18)
+    $ charisma_chance = player.ability_success_rate("cha", 14)
     if player_is_maria():
         menu:
             "Potato salad?":
@@ -320,6 +320,13 @@ label maria_menu_potato_salad:
     show nana_sit mouth_neutral brows_neutral
     "Maria decides not to comment."
 
+    show nana_sit iris_center mouth_bigsmile brows_up
+    nana "His first name is Potato, and his last name is Salad!"
+
+    show nana_sit mouth_neutral brows_neutral
+    show maria eyes_closed_down
+    "Maria closes her eyes to calm herself down."
+
     jump scene2
 
 label maria_menu_intimidation1:
@@ -331,7 +338,51 @@ label maria_menu_medicine1:
     jump scene2
 
 label maria_menu_charisma1:
-    "TODO"
+    
+    show maria brows_updown mouth_smile
+    maria "I suppose the door was too difficult to find?"
+
+    show nana_sit brows_up mouth_neutral iris_center head_neutral
+    nana "Oh! I... well..."
+
+    show nana_sit brows_updown iris_think
+    if maria_sheet.ability_test("cha", 14):
+        "Nana pauses for a moment, before realizing that Maria was making a joke."
+
+        show nana_sit mouth_bigsmile brows_up eyes_closed_up iris_center
+        nana "Oh! Haha! Yes, I suppose it was!"
+
+        show nana_sit brows_neutral mouth_smile eyes_blink 
+        show maria iris_center brows_neutral mouth_smile
+        nana "You know, you can always come in through the door, but you can only come in through the window once!"
+
+        show maria mouth_neutral
+        "Maria is waiting for the punchline."
+
+        show nana_sit iris_right
+        nana "Because it will be broken after that..."
+
+        show maria mouth_smile eyes_closed_up
+        show nana_sit iris_center
+        "Maria manages to force a small smile, mostly out of politeness."
+
+    else:
+        "Nana is thinking about Maria's question, but she doesn't seem to understand the joke."
+
+        show nana_sit brows_neutral iris_center mouth_smile
+        nana "Oh! The door? I think it should be... right over there!"
+
+        show maria iris_center brows_neutral mouth_neutral
+        maria "..."
+
+        nana "Why are you asking?"
+
+        show nana_sit brows_updown mouth_neutral
+        nana "Wait, how did you even get in without the door? Did you also crash into a window?"
+
+        show maria eyes_closed_up mouth_smile
+        maria "Never mind, forget I asked."
+
     jump scene2
 
 label scene2:

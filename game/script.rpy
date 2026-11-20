@@ -21,6 +21,16 @@ transform maria_nana_sit_pos:
     zoom 0.65
     ypos 0.9 xpos 0.5
 
+transform nana_duo_pos:
+    anchor (0.5, 0.5)
+    zoom 0.7
+    ypos 0.9 xpos 0.65
+
+transform maria_duo_pos:
+    anchor (0.5, 0.5)
+    zoom 0.7
+    ypos 0.97 xpos 0.35
+
 transform candle_pos:
     anchor (0.5, 0.5)
     ypos 0.5 xpos 0.5
@@ -62,7 +72,7 @@ init python:
         return player == nana_sheet
 
 label start:
-    #jump window_scene
+    jump scene2
 
     scene black
     show candle idle flame_off at candle_pos, candle_unlit_and_dark
@@ -252,17 +262,11 @@ label window_scene:
     play music "audio/mozart sonata in c slow.ogg"
     "Nana reaches out to the broom."
 
-    $ intimidation_chance = player.skill_success_rate("intimidation", 10)
-    $ medicine_chance = player.skill_success_rate("medicine", 16)
     $ charisma_chance = player.ability_success_rate("cha", 14)
     if player_is_maria():
         menu:
             "Potato salad?":
                 jump maria_menu_potato_salad
-            "Are you out of you mind? (Intimidation [intimidation_chance]\%)":
-                jump maria_menu_intimidation1
-            "Oh dear lord! Are you hurt? (Medicine [medicine_chance]\%)":
-                jump maria_menu_medicine1
             "I suppose the door was too difficult to find? (Charisma [charisma_chance]\%)":
                 jump maria_menu_charisma1
     else: # TODO jump to last default
@@ -329,14 +333,6 @@ label maria_menu_potato_salad:
 
     jump scene2
 
-label maria_menu_intimidation1:
-    "TODO"
-    jump scene2
-
-label maria_menu_medicine1:
-    "TODO"
-    jump scene2
-
 label maria_menu_charisma1:
     
     show maria brows_updown mouth_smile
@@ -386,4 +382,71 @@ label maria_menu_charisma1:
     jump scene2
 
 label scene2:
-    "The scene continues..."
+    scene black
+    nana "Wait, let me get up!"
+
+    scene black
+    show nana idle mouth_smile at nana_duo_pos
+    show maria idle mouth_smile at maria_duo_pos
+
+    "After the initial shock, Maria takes another look at the broom and Nana's attire."
+
+    show maria eyes_squint mouth_neutral
+    if maria_sheet.skill_test("religion", 12):
+        maria "Death has come through our windows and entered our palaces ~ Jeremiah 9:21"
+    else:
+        "..."
+
+    show maria brows_down    
+    maria "Say, you are not by any chance a witch, are you?"
+
+    show nana mouth_bigsmile brows_up iris_right
+    show maria brows_up eyes_blink
+    nana "A witch? Me? No, no no. How did you get that idea?"
+
+    show nana iris_think
+    nana "I mean: in a world with gods and magic, what even is a witch?"
+
+    show maria mouth_smile eyes_closed_up
+    maria "Oh dear lord! I believe there is an important distinction."
+
+    show maria brows_down
+    show nana iris_center
+    scene black with dissolve
+    stop ambient fadeout 1.0
+    stop ambient2 fadeout 1.0
+    stop music fadeout 1.0
+
+    # TODO image of floating particles
+    maria "In the beginning, there was nothing but chaos."
+
+    
+    maria "Aether particles were everwhere. Like souls who don't know Jesus, floating without purpose."
+
+    
+    # TODO image with particles drawn together
+    maria "But then, the Lord gathered the scattered aether particles."
+    
+    # TODO image of hammer hitting the particles
+    play sound "sfx/hammer.ogg"
+    maria "He imagined our world, and beat the particles into shapes."
+    # and shaped them into creations."
+
+    # flame with flame sfx
+    play sound "sfx/match_on.ogg"
+    play ambient "sfx/candle_sounds.ogg" fadein 3.0
+    maria "And thus he created the water, the fire, the mountains, the rivers."
+
+    maria "This is also known as the 'First Shaping', and it is the first of the Lord's many miracles."
+
+    scene black
+    stop ambient
+    stop ambient2
+    play ambient2 "sfx/rain.ogg" volume 0.8 fadein 2.0 # continue ambient sfx from before
+
+    show nana idle mouth_smile at nana_duo_pos
+    show maria idle mouth_smile at maria_duo_pos
+
+    # TODO nanas part, where she explains how people can remember and use magic, 
+    nana "Yes, everyone knows about the First Shaping..."
+

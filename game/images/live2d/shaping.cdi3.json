@@ -1,0 +1,37 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "Breath"
+		},
+		{
+			"Id": "ParamGather",
+			"GroupId": "",
+			"Name": "Gather"
+		},
+		{
+			"Id": "ParamHammer",
+			"GroupId": "",
+			"Name": "Hammer"
+		},
+		{
+			"Id": "ParamHammerRotation",
+			"GroupId": "",
+			"Name": "HammerRotation"
+		},
+		{
+			"Id": "ParamFlame",
+			"GroupId": "",
+			"Name": "Flame"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Particles",
+			"Name": "Particles"
+		}
+	]
+}

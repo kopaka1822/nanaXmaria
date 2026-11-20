@@ -1,0 +1,41 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "shaping.moc3",
+		"Textures": [
+			"shaping.1024/texture_00.png"
+		],
+		"DisplayInfo": "shaping.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "gather_on",
+				"File": "shaping_gather_on.exp3.json"
+			},
+			{
+				"Name": "hammer_on",
+				"File": "shaping_hammer_on.exp3.json"
+			},
+			{
+				"Name": "hammerrotate_on",
+				"File": "shaping_hammerrotate_on.exp3.json"
+			},
+			{
+				"Name": "flame_on",
+				"File": "shaping_flame_on.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

@@ -1,0 +1,11 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 1,
+	"Parameters": [
+		{
+			"Id": "ParamFlame",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

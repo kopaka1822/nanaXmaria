@@ -72,7 +72,7 @@ init python:
         return player == nana_sheet
 
 label start:
-    jump scene2
+    #jump scene2
 
     scene black
     show candle idle flame_off at candle_pos, candle_unlit_and_dark
@@ -329,7 +329,7 @@ label maria_menu_potato_salad:
 
     show nana_sit mouth_neutral brows_neutral
     show maria eyes_closed_down
-    "Maria closes her eyes to calm herself down."
+    "Maria closes her eyes to relax for a moment, and then opens them again."
 
     jump scene2
 
@@ -386,8 +386,12 @@ label scene2:
     nana "Wait, let me get up!"
 
     scene black
-    show nana idle mouth_smile at nana_duo_pos
+    show nana idle mouth_frown brows_down at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
+
+    nana "I am sorry sister, I didn't mean to intrude like that!"
+
+    "TODO some dialogue"
 
     "After the initial shock, Maria takes another look at the broom and Nana's attire."
 
@@ -415,7 +419,9 @@ label scene2:
     scene black with dissolve
     stop ambient fadeout 1.0
     stop ambient2 fadeout 1.0
-    stop music fadeout 1.0
+    play music "audio/Canon in D Major.mp3" fadein 2.0
+
+    show shaping idle
 
     # TODO image of floating particles
     maria "In the beginning, there was nothing but chaos."
@@ -424,20 +430,21 @@ label scene2:
     maria "Aether particles were everwhere. Like souls who don't know Jesus, floating without purpose."
 
     
-    # TODO image with particles drawn together
+    show shaping gather_on
     maria "But then, the Lord gathered the scattered aether particles."
     
-    # TODO image of hammer hitting the particles
-    play sound "sfx/hammer.ogg"
+    show shaping hammer_on hammerrotate_on
+    play sound ["<silence 0.2>", "sfx/hammer.ogg"]
     maria "He imagined our world, and beat the particles into shapes."
     # and shaped them into creations."
 
     # flame with flame sfx
+    show shaping flame_on
     play sound "sfx/match_on.ogg"
     play ambient "sfx/candle_sounds.ogg" fadein 3.0
-    maria "And thus he created the water, the fire, the mountains, the rivers."
+    maria "And with that, he created fire, water, the mountains and the rivers."
 
-    maria "This is also known as the 'First Shaping', and it is the first of the Lord's many miracles."
+    maria "It is also known as the 'First Shaping', and it's the first of the Lord's many miracles."
 
     scene black
     stop ambient

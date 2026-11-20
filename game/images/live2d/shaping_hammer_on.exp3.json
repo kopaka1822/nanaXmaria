@@ -1,0 +1,11 @@
+{
+	"Type": "Live2D Expression",
+	"FadeInTime": 0,
+	"Parameters": [
+		{
+			"Id": "ParamHammer",
+			"Value": 1,
+			"Blend": "Add"
+		}
+	]
+}

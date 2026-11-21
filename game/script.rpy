@@ -391,9 +391,86 @@ label scene2:
 
     nana "I am sorry sister, I didn't mean to intrude like that!"
 
+    if player_is_nana():
+        if nana_sheet.skill_test("perception", 14):
+            "There was a small twitch in Maria's eye after the word 'sister' was used."
+        else:
+            "..."
+    
+    maria "Oh, please. Just call me Maria."
+
+    show nana brows_up mouth_neutral
+    nana "So- sorry Sister! I mean, Maria!"
+
+    show nana brows_updown mouth_pout iris_left
+    nana "But you are a sister, right? I mean a nun."
+
+    show nana mouth_neutral
+    show maria eyes_closed_up mouth_bigsmile brows_up
+    maria "We are all brothers and sister of Jesus." # ~ Galatians 3:26
+
+    show maria eyes_blink brows_neutral mouth_smile
+    show nana iris_center
+    if maria_sheet.skill_test("religion", 10):
+        maria "The spirit himself testifies that we are God's children. ~ Romans 8:16"
+    elif player_is_maria():
+        "..."
+
+    show maria iris_right
+    maria "But yes, though I am actually appointed as the priestess of this chapel."
+
+    show nana mouth_bigsmile brows_up eyes_closed_up iris_center
+    show maria iris_center brows_neutral mouth_neutral
+    nana "I see! Sister Maria, that is impressive!"
+
+    show maria eyes_closed_down mouth_neutral brows_down
+    maria "Like I said, just Maria is fine."
+
+    if player_is_nana():
+        if nana_sheet.skill_test("insight", 14):
+            "It appears that Maria is slowly losing her patience."
+        else:
+            "..."
+
+    show maria eyes_blink brows_neutral mouth_neutral
+    show nana eyes_blink mouth_smile
+    maria "The youngest daughter of my parents already calls me sister, and I don't need anyone else to call me that."
+
+    if nana_sheet.ability_test("int", 12):
+        show nana brows_up mouth_bigsmile
+        nana "Um, Oh! You have a younger sister? I see! That is wonderful!"
+        show maria iris_left mouth_smile
+        maria "Yes, wonderful indeed. Bless the Lord!"
+        if player_is_nana():
+            if nana_sheet.skill_test("insight", 14):
+                "This remark sounded a bit sarcastic."
+            else:
+                "..."
+    else:
+        show nana iris_think mouth_frown brows_down
+        nana "Um, what?"
+        show maria eyes_closed_down mouth_neutral brows_down
+        maria "Forget it, just call me Maria."
+
+
+    # short scene switch to the window
+    scene black
+    show chapel_window idle at window_pos
+
+    "The raindrops continue to patter against the remaining chapel windows."
+
+    #play ambient "sfx/wind.ogg" fadein 2.0
+    "A howling gust of wind rushes through the broken window."
+
+    scene black
+    show nana idle mouth_frown brows_down at nana_duo_pos
+    show maria idle mouth_smile at maria_duo_pos
+
+
+    
     "TODO some dialogue"
 
-    "After the initial shock, Maria takes another look at the broom and Nana's attire."
+    "Maria takes another look at the broom and Nana's attire."
 
     show maria eyes_squint mouth_neutral
     if maria_sheet.skill_test("religion", 12):
@@ -422,27 +499,25 @@ label scene2:
     play music "audio/Canon in D Major.mp3" fadein 2.0
 
     show shaping idle
-
-    # TODO image of floating particles
     maria "In the beginning, there was nothing but chaos."
 
-    
-    maria "Aether particles were everwhere. Like souls who don't know Jesus, floating without purpose."
+    maria "Aether particles were everwhere."
 
+    maria "Like souls who don't know Jesus, floating without purpose."
     
     show shaping gather_on
     maria "But then, the Lord gathered the scattered aether particles."
     
     show shaping hammer_on hammerrotate_on
     play sound ["<silence 0.2>", "sfx/hammer.ogg"]
-    maria "He imagined our world, and beat the particles into shapes."
+    maria "He had a vision, and formed the particles into shapes."
     # and shaped them into creations."
 
     # flame with flame sfx
     show shaping flame_on
     play sound "sfx/match_on.ogg"
     play ambient "sfx/candle_sounds.ogg" fadein 3.0
-    maria "And with that, he created fire, water, the mountains and the rivers."
+    maria "And with that, he created fire, water, the mountains and the ocean."
 
     maria "It is also known as the 'First Shaping', and it's the first of the Lord's many miracles."
 

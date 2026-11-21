@@ -141,7 +141,7 @@
         "persuasion": {
             "display": _("Persuasion"),
             "ability": "cha",
-            "description": _("Convince someone with charm."),
+            "description": _("Convince someone with honesty."),
         },
     }
 

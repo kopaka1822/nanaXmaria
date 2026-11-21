@@ -71,6 +71,7 @@ default nana_sheet = CharacterSheet(
     skill_values={"arcana": 2, "nature": 2}
 )
 default player = maria_sheet # in the first run, the player is maria (This variable is used to display the character sheet)
+default time_loop_count = 1
 
 init python:
     # helper functions
@@ -80,10 +81,41 @@ init python:
     def player_is_nana():
         return player == nana_sheet
 
+    class _PopupHistoryEntry(object):
+        def __init__(self, who, what, who_args=None):
+            self.who = who
+            self.what = what
+            self.who_args = who_args if who_args is not None else {}
+
+    def push_popup_history(text, who=None, who_args=None):
+        global _history_list
+        _history_list.append(_PopupHistoryEntry(who, text, who_args))
+
+screen time_loop_popup():
+
+    modal True
+    tag day_popup
+
+    on "show" action Function(push_popup_history, _("Loop %d") % time_loop_count, None, {"color": gui.accent_color})
+    
+    button:
+        xfill True
+        yfill True
+        background Solid("#0008")
+        action Return()
+
+        text _("Loop [time_loop_count]"):
+            xalign 0.5
+            yalign 0.5
+            size 96
+            color "#fff"
+
 label start:
     #jump scene2
 
     scene black
+    call screen time_loop_popup()
+
     show candle idle flame_off at candle_pos, candle_unlit_and_dark
 
     "The chapel is dimly lit by the last traces of daylight."

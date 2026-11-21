@@ -48,6 +48,10 @@ init -90 python:
         def remove_expired_buffs(self, current_day):
             self.buffs = [buff for buff in self.buffs if not buff.is_expired(current_day)]
 
+        def _display_roll(self):
+            '''Only display roll results, if the active player rolls'''
+            return self is renpy.store.player
+
         def _build_roll_modifier(self, roll_kind, handle):
             if roll_kind == BUFF_TARGET_ABILITY:
                 modifier = RollModifier(ability_level=self.abilities[handle])
@@ -153,15 +157,16 @@ init -90 python:
             mod = modifier.get_roll_bonus()
             success = self._success_from_roll(raw, mod, dc)
 
-            # auto-highlight used ability for ~5s
-            cs_mark_ability_highlight(self.name, ability_handle, 5.0)
+            if self._display_roll():
+                # auto-highlight used ability for ~5s
+                cs_mark_ability_highlight(self.name, ability_handle, 5.0)
 
-            # show popup with result
-            ability_display = get_ability_display(ability_handle)
-            result_text = (ability_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
-            bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_ABILITY, ability_handle, mod)
-            renpy.hide_screen("test_result_popup")
-            renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)
+                # show popup with result
+                ability_display = get_ability_display(ability_handle)
+                result_text = (ability_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
+                bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_ABILITY, ability_handle, mod)
+                renpy.hide_screen("test_result_popup")
+                renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)
 
             return success
 
@@ -189,15 +194,16 @@ init -90 python:
             mod = modifier.get_roll_bonus()
             success = self._success_from_roll(raw, mod, dc)
 
-            # auto-highlight used skill + its base ability for ~5s
-            cs_mark_skill_highlight(self.name, skill_handle, 5.0)
+            if self._display_roll():
+                # auto-highlight used skill + its base ability for ~5s
+                cs_mark_skill_highlight(self.name, skill_handle, 5.0)
 
-            # show popup with result
-            skill_display = get_skill_display(skill_handle)
-            result_text = (skill_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
-            bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_SKILL, skill_handle, mod)
-            renpy.hide_screen("test_result_popup")
-            renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)
+                # show popup with result
+                skill_display = get_skill_display(skill_handle)
+                result_text = (skill_display, _("succeeded") if success else _("failed"), "{}/{}".format(raw+mod, dc))
+                bonus_breakdown = self._build_roll_bonus_breakdown(BUFF_TARGET_SKILL, skill_handle, mod)
+                renpy.hide_screen("test_result_popup")
+                renpy.show_screen("test_result_popup", message=result_text, success=success, roll_value=raw, bonus_tooltip=bonus_breakdown)
 
             return success
 

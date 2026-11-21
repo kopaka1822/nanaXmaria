@@ -39,6 +39,15 @@ transform window_pos:
     anchor (0.5, 0.5)
     ypos 0.45 xpos 0.5
 
+######################################################
+## JUMP LABELS #######################################
+######################################################
+default jump_label_maria1 = "nana_menu_potato_salad"
+default jump_label_maria2 = "scene_nana_onmyway_boulder2"
+default jump_label_maria3 = "scene_nana_onmyway_boulder3"
+default jump_label_maria4 = ""
+default jump_label_nana1 = "scene_nana_onmyway_boulder"
+
 transform candle_unlit_and_dark:
     matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(-0.1)
 
@@ -266,11 +275,11 @@ label window_scene:
     if player_is_maria():
         menu:
             "Potato salad?":
-                jump maria_menu_potato_salad
+                $ jump_label_maria1 = "maria_menu_potato_salad"
             "I suppose the door was too difficult to find? (Charisma [charisma_chance]\%)":
-                jump maria_menu_charisma1
-    else: # TODO jump to last default
-        jump nana_menu_potato_salad
+                $ jump_label_maria1 = "maria_menu_charisma1"
+    
+    $ renpy.jump(jump_label_maria1)
 
 label maria_menu_potato_salad:
     show maria brows_updown mouth_neutral iris_center head_what
@@ -385,15 +394,16 @@ label scene2:
     scene black
     nana "Wait, let me get up!"
 
+label scene_maria_introduces_herself:
     scene black
     show nana idle mouth_frown brows_down at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
-    nana "I am sorry sister, I didn't mean to intrude like that!"
+    nana "I am sorry Sister, I didn't mean to intrude like that!"
 
     if player_is_nana():
         if nana_sheet.skill_test("perception", 14):
-            "There was a small twitch in Maria's eye after the word 'sister' was used."
+            "Maria's eye twitches slightly at the word 'Sister'."
         else:
             "..."
     
@@ -403,21 +413,21 @@ label scene2:
     nana "So- sorry Sister! I mean, Maria!"
 
     show nana brows_updown mouth_pout iris_left
-    nana "But you are a sister, right? I mean a nun."
+    nana "But you are a Sister, right? I mean a follower of the church."
 
     show nana mouth_neutral
     show maria eyes_closed_up mouth_bigsmile brows_up
-    maria "We are all brothers and sister of Jesus." # ~ Galatians 3:26
+    maria "We are all brothers and sisters of Jesus." # ~ Galatians 3:26
 
     show maria eyes_blink brows_neutral mouth_smile
     show nana iris_center
     if maria_sheet.skill_test("religion", 10):
-        maria "The spirit himself testifies that we are God's children. ~ Romans 8:16"
+        maria "The Spirit himself testifies that we are God's children. ~ Romans 8:16"
     elif player_is_maria():
         "..."
 
     show maria iris_right
-    maria "But yes, though I am actually appointed as the priestess of this chapel."
+    maria "But yes, though I am actually the appointed priestess of this chapel."
 
     show nana mouth_bigsmile brows_up eyes_closed_up iris_center
     show maria iris_center brows_neutral mouth_neutral
@@ -462,15 +472,111 @@ label scene2:
     #play ambient "sfx/wind.ogg" fadein 2.0
     "A howling gust of wind rushes through the broken window."
 
+label scene_nana_introduces_herself:
+
     scene black
-    show nana idle mouth_frown brows_down at nana_duo_pos
+    show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
+    nana "Nana."
 
+    show nana brows_up
+    nana "My name is Nana!"
+
+    show nana brows_neutral iris_think mouth_smile
+    nana "I was um..."
+
+    if player_is_nana():
+        $ deception_chance = nana_sheet.ability_success_rate("cha", 8)
+        menu:
+            "On my way to the boulder.":
+                $ jump_label_nana1 = "scene_nana_onmyway_boulder"
+            "Gathering herbs (Deception [deception_chance]\%)":
+                $ jump_label_nana1 = "scene_nana_onmyway_herbs"
+            # "Just passing through (Persuasion)"
     
-    "TODO some dialogue"
+    $ renpy.jump(jump_label_nana1)
 
-    "Maria takes another look at the broom and Nana's attire."
+label scene_nana_onmyway_boulder:
+    # TODO set a flag about destination to boulder?
+
+    show nana iris_center brows_up
+    nana "I was on my way to the boulder."
+
+    show maria brows_updown
+    maria "The boulder? Are you talking about the mountain peak?"
+
+    show maria brows_neutral
+    show nana eyes_closed_up
+    nana "Yes! There's a gathering there, and..."
+
+    show nana eyes_blink brows_down iris_right
+    if player_is_nana():
+        nana "(Oh no wait, I can't tell her that I'm on my way to a witch gathering!)"
+    
+    nana "I mean a family gathering of course!"
+
+    if player_is_maria():
+        menu:
+            "A family gathering?":
+                $ jump_label_maria2 = "scene_nana_onmyway_boulder2"
+            "I see, that's nice!":
+                $ jump_label_maria2 = "scene_nana_onmyway_boulder_finish"
+    $ renpy.jump(jump_label_maria2)
+
+label scene_nana_onmyway_boulder2:
+
+    maria "A family gathering?"
+
+    show nana iris_sad
+    nana "Yes! Um, my family is gathering there every few years to do... um, family things!"
+
+    if player_is_maria():
+        menu:
+            "Family things?":
+                $ jump_label_maria3 = "scene_nana_onmyway_boulder3"
+            "I see, that's nice!":
+                $ jump_label_maria3 = "scene_nana_onmyway_boulder_finish"
+    $ renpy.jump(jump_label_maria3)
+
+label scene_nana_onmyway_boulder3:
+
+    maria "Family things?"
+
+    show nana iris_right brows_neutral
+    nana "Yeah, you know, like, singing and dancing and ... stuff."
+
+    show nana iris_center brows_down
+    nana "I mean, what do you want me to say? Do you want me to sing one of the songs?"
+
+    show maria eyes_closed_up brows_up mouth_smile
+    maria "Oh no, I was just curious."
+
+    jump scene_maria_nana_discuss_magic
+
+label scene_nana_onmyway_boulder_finish:
+
+    show maria eyes_closed_up brows_up mouth_smile
+    maria "I see, that's nice!"
+
+    jump scene_maria_nana_discuss_magic
+
+label scene_nana_onmyway_herbs:
+    "TODO"
+    if nana_sheet.skill_test("deception", 8):
+        "success"
+    else:
+        "fail"
+
+    jump scene_maria_nana_discuss_magic
+    
+label scene_maria_nana_discuss_magic:
+
+    "Nana seems to have trouble managing social situations."
+
+    show maria eyes_blink brows_neutral mouth_neutral
+    show nana iris_center
+    "Meanwhile, Maria takes another look at the broom and Nana's attire."
 
     show maria eyes_squint mouth_neutral
     if maria_sheet.skill_test("religion", 12):
@@ -503,14 +609,14 @@ label scene2:
 
     maria "Aether particles were everwhere."
 
-    maria "Like souls who don't know Jesus, floating without purpose."
+    maria "Just like souls who don't know Jesus, floating without purpose."
     
     show shaping gather_on
     maria "But then, the Lord gathered the scattered aether particles."
     
     show shaping hammer_on hammerrotate_on
     play sound ["<silence 0.2>", "sfx/hammer.ogg"]
-    maria "He had a vision, and formed the particles into shapes."
+    maria "Piece by piece, he formed the particles into shapes."
     # and shaped them into creations."
 
     # flame with flame sfx
@@ -518,6 +624,8 @@ label scene2:
     play sound "sfx/match_on.ogg"
     play ambient "sfx/candle_sounds.ogg" fadein 3.0
     maria "And with that, he created fire, water, the mountains and the ocean."
+
+    maria "And God saw that it was good."
 
     maria "It is also known as the 'First Shaping', and it's the first of the Lord's many miracles."
 

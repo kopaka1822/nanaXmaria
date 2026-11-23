@@ -47,6 +47,9 @@ default jump_label_maria2 = "scene_nana_onmyway_boulder2"
 default jump_label_maria3 = "scene_nana_onmyway_boulder3"
 default jump_label_maria4 = ""
 default jump_label_nana1 = "scene_nana_onmyway_boulder"
+default jump_label_nana2 = "scene_nana_mayonnaise"
+default jump_label_nana3 = ""
+default jump_label_nana4 = ""
 
 transform candle_unlit_and_dark:
     matrixcolor SaturationMatrix(0.0) * BrightnessMatrix(-0.1)
@@ -639,7 +642,7 @@ label scene_maria_nana_discuss_magic:
     show shaping idle
     maria "In the beginning, there was nothing but chaos."
 
-    maria "Aether particles were everwhere."
+    maria "Aether particles were everywhere."
 
     maria "Just like souls who don't know Jesus, floating without purpose."
     
@@ -648,18 +651,19 @@ label scene_maria_nana_discuss_magic:
     
     show shaping hammer_on hammerrotate_on
     play sound ["<silence 0.2>", "sfx/hammer.ogg"]
-    maria "Piece by piece, he formed the particles into shapes."
-    # and shaped them into creations."
+    maria "He created the {b}First Spells{/b} to form the particles into shapes."
 
     # flame with flame sfx
     show shaping flame_on
     play sound "sfx/match_on.ogg"
     play ambient "sfx/candle_sounds.ogg" fadein 3.0
-    maria "And with that, he created fire, water, the mountains and the ocean."
+    maria "And with that, he created all the First Shapes, such as fire, water, dirt and stone."
 
     maria "And God saw that it was good."
 
     maria "It is also known as the 'First Shaping', and it's the first of the Lord's many miracles."
+
+    maria "Everything that exists naturally in this world is made from first shapes."
 
     scene black
     stop ambient
@@ -669,6 +673,90 @@ label scene_maria_nana_discuss_magic:
     show nana idle mouth_smile at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
-    # TODO nanas part, where she explains how people can remember and use magic, 
-    nana "Yes, everyone knows about the First Shaping..."
+    nana "So everything that 'naturally' exists is made from first shapes?"
+
+    maria "Yes, precisely."
+
+    if player_is_nana():
+        menu:
+            "Is mayonnaise a first shape?":
+                $ jump_label_nana2 = "scene_nana_mayonnaise"
+            "Is Horseradish a first shape?":
+                $ jump_label_nana2 = "scene_nana_horseradish"
+    
+    $ renpy.jump(jump_label_nana2)
+
+label scene_nana_mayonnaise:
+
+    nana "Is mayonnaise a first shape?"
+
+    maria "Well..."
+
+    if maria_sheet.skill_test("arcana", 10):
+        maria "No, mayonnaise is not a first shape. It is a mixture of first shapes, such as water and oil."
+    else:
+        maria "I think it could be... but I am not sure. I haven't studied arcana."
+
+    jump scene_magic2
+
+label scene_nana_horseradish:
+
+    nana "Is horseradish a first shape?"
+
+    if maria_sheet.skill_test("arcana", 10):
+        maria "No, horseradish is not a first shape. Living beings are complex and consist of multiple first shapes."
+    else:
+        maria "I don't think it is... There was some catch to it, I forgot."
+
+    jump scene_magic2
+label scene_magic2:
+
+    maria "Anyways, let me continue:"
+
+    maria "The devil grew envious of the Lord's creation and wanted to spread chaos and destruction."
+
+    maria "So he created the {b}Second Spells{/b} to create unimaginable things."
+
+    maria "These Second Spells can make curses, illusions and even monsters."
+
+    nana "So the Second Spells are evil, and the First Spells are good?"
+
+    maria "Yes, and while mages generally use the First Spells, there are also witches, who use the evil Second Spells."
+
+    nana "Oh, don't worry! I am a mage that only uses First Spells!"
+
+    nana "Mostly, -I mean exclusively! First Spells!"
+    
+    "Nana looks at Maria with big eyes and a large smile, as if she was waiting for praise."
+
+    if player_is_maria():
+        if maria_sheet.skill_test("insight", 12):
+            maria "(Did she just slip up by saying 'mostly'?)"
+        else:
+            "..."
+
+label scene_window_fix:
+
+    scene black
+    show chapel_window idle at window_pos
+
+    "The rain outside continues..."
+
+    #play ambient "sfx/wind.ogg" fadein 2.0
+    "And the wind that is entering through the broken window is getting colder and colder."
+
+label scene_nana_introduces_herself:
+
+    scene black
+    show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
+    show maria idle mouth_smile at maria_duo_pos
+
+    maria "I think we have more important matters to address."
+
+    maria "How are we going to fix the window?"
+
+    if player_is_nana():
+        menu:
+            "I know a second spell to fix the window!":
+                $ jump_label_nana3 = "scene_nana_window_fix_spell"
 

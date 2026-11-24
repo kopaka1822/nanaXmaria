@@ -203,3 +203,8 @@
     # game/dnd/abilities.rpy:60
     old "Convince someone with charm."
     new "Jemanden überzeugen."
+
+    # game/dnd/abilities.rpy:60
+    old "Convince someone with honesty."
+    new "Jemanden überzeugen."
+

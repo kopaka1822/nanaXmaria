@@ -276,7 +276,7 @@ label window_scene:
 
     #stop music fadeout 2.0 
 
-    "The raindrops gently patter agains the chapel window, playing a soothing melody."
+    "The raindrops gently patter against the chapel window, playing a soothing melody."
 
     play sound "sfx/thunderstrike.ogg"
     stop music
@@ -735,6 +735,8 @@ label scene_magic2:
         else:
             "..."
 
+    nana "Actually, "
+
 label scene_window_fix:
 
     scene black
@@ -744,8 +746,6 @@ label scene_window_fix:
 
     #play ambient "sfx/wind.ogg" fadein 2.0
     "And the wind that is entering through the broken window is getting colder and colder."
-
-label scene_nana_introduces_herself:
 
     scene black
     show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
@@ -759,4 +759,7 @@ label scene_nana_introduces_herself:
         menu:
             "I know a second spell to fix the window!":
                 $ jump_label_nana3 = "scene_nana_window_fix_spell"
+
+
+                # TODO nana ich wollte dich nur testen und ehm schauen ob du deine Hausaufgabe gemacht hat, haha
 

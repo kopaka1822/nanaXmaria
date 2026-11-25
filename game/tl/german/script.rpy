@@ -536,7 +536,7 @@ translate german scene_maria_introduces_herself_e4b09337:
 translate german scene_maria_introduces_herself_2d01de99:
 
     # maria "We are all brothers and sisters of Jesus."
-    maria "Wir sind alle Brüder und Schwester von Jesus."
+    maria "Wir sind alle Brüder und Schwestern von Jesus."
 
 # game/script.rpy:460
 translate german scene_maria_introduces_herself_8a1637c4:

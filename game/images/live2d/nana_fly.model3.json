@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "nana_fly.moc3",
+		"Textures": [
+			"nana_fly.2048/texture_00.png"
+		],
+		"Physics": "nana_fly.physics3.json",
+		"DisplayInfo": "nana_fly.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

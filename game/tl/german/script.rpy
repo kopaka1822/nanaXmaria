@@ -1,4 +1,55 @@
-﻿# game/script.rpy:41
+﻿translate german strings:
+
+    # game/script.rpy:102
+    old "Loop %d"
+    new "Schleife %d"
+
+    # game/script.rpy:110
+    old "Loop [time_loop_count]"
+    new "Schleife [time_loop_count]"
+
+    # game/script.rpy:312
+    old "Potato salad?"
+    new "Kartoffelsalat?"
+
+    # game/script.rpy:314
+    old "I suppose the door was too difficult to find? (Charisma [charisma_chance]%)"
+    new "War die Tür zu schwer zu finden? (Charisma [charisma_chance]%)"
+
+    # game/script.rpy:527
+    old "On my way to the boulder."
+    new "Unterwegs zum Brocken."
+
+    # game/script.rpy:529
+    old "Gathering herbs (Deception [deception_chance]%)"
+    new "Kräuter sammeln (Täuschung [deception_chance]%)"
+
+    # game/script.rpy:556
+    old "A family gathering?"
+    new "Ein Familientreffen?"
+
+    # game/script.rpy:558
+    old "I see, that's nice!"
+    new "Achso, wie schön!"
+
+    # game/script.rpy:571
+    old "Family things?"
+    new "Familiendinge?"
+
+    # game/script.rpy:682
+    old "Is mayonnaise a first shape?"
+    new "Ist Mayonnaise auch eine erste Form?"
+
+    # game/script.rpy:684
+    old "Is Horseradish a first shape?"
+    new "Ist Meerrettich auch eine erste Form?"
+
+    # game/script.rpy:760
+    old "I know a second spell to fix the window!"
+    new "Ich kenne einen Zweiten Zauber, um das Fenster zu reparieren!"
+
+
+# game/script.rpy:41
 translate german start_41ed142c:
 
     # "The chapel is dimly lit by the last traces of daylight."
@@ -862,12 +913,6 @@ translate german scene_nana_mayonnaise_23505867:
     # nana "Is mayonnaise a first shape?"
     nana "Ist Mayonnaise auch eine Erste Form?"
 
-# game/script.rpy:693
-translate german scene_nana_mayonnaise_852c7954:
-
-    # maria "Well..."
-    maria "Naja..."
-
 # game/script.rpy:696
 translate german scene_nana_mayonnaise_bb008b8d:
 
@@ -964,12 +1009,6 @@ translate german scene_magic2_a20cefa7:
     # "..."
     "..."
 
-# game/script.rpy:738
-translate german scene_magic2_e2214a69:
-
-    # nana "Actually, "
-    nana "Eigentlich,"
-
 # game/script.rpy:745
 translate german scene_window_fix_25979c5e:
 
@@ -994,52 +1033,3 @@ translate german scene_window_fix_5ad625ed:
     # maria "How are we going to fix the window?"
     maria "Wie wollen wir das Fenster reparieren?"
 
-translate german strings:
-
-    # game/script.rpy:102
-    old "Loop %d"
-    new "Schleife %d"
-
-    # game/script.rpy:110
-    old "Loop [time_loop_count]"
-    new "Schleife [time_loop_count]"
-
-    # game/script.rpy:312
-    old "Potato salad?"
-    new "Kartoffelsalat?"
-
-    # game/script.rpy:314
-    old "I suppose the door was too difficult to find? (Charisma [charisma_chance]%)"
-    new "War die Tür zu schwer zu finden? (Charisma [charisma_chance]%)"
-
-    # game/script.rpy:527
-    old "On my way to the boulder."
-    new "Unterwegs zum Brocken."
-
-    # game/script.rpy:529
-    old "Gathering herbs (Deception [deception_chance]%)"
-    new "Kräuter sammeln (Täuschung [deception_chance]%)"
-
-    # game/script.rpy:556
-    old "A family gathering?"
-    new "Ein Familientreffen?"
-
-    # game/script.rpy:558
-    old "I see, that's nice!"
-    new "Achso, wie schön!"
-
-    # game/script.rpy:571
-    old "Family things?"
-    new "Familiendinge?"
-
-    # game/script.rpy:682
-    old "Is mayonnaise a first shape?"
-    new "Ist Mayonnaise auch eine erste Form?"
-
-    # game/script.rpy:684
-    old "Is Horseradish a first shape?"
-    new "Ist Meerrettich auch eine erste Form?"
-
-    # game/script.rpy:760
-    old "I know a second spell to fix the window!"
-    new "Ich kenne einen Zweiten Zauber, um das Fenster zu reparieren!"

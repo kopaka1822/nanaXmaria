@@ -48,7 +48,7 @@ default jump_label_maria3 = "scene_nana_onmyway_boulder3"
 default jump_label_maria4 = ""
 default jump_label_nana1 = "scene_nana_onmyway_boulder"
 default jump_label_nana2 = "scene_nana_mayonnaise"
-default jump_label_nana3 = ""
+default jump_label_nana3 = "scene_nana_window_fix_second_spell"
 default jump_label_nana4 = ""
 
 transform candle_unlit_and_dark:
@@ -112,6 +112,20 @@ screen time_loop_popup():
             yalign 0.5
             size 96
             color "#fff"
+
+label next_loop:
+    # increase loop count and switch player character
+    $ time_loop_count += 1
+    if player_is_maria():
+        $ player = nana_sheet
+    else:
+        $ player = maria_sheet
+
+    # stop all sounds
+    stop sound
+    stop music
+    stop ambient
+    stop ambient2
 
 label start:
     #jump scene2
@@ -690,8 +704,6 @@ label scene_nana_mayonnaise:
 
     nana "Is mayonnaise a first shape?"
 
-    maria "Well..."
-
     if maria_sheet.skill_test("arcana", 10):
         maria "No, mayonnaise is not a first shape. It is a mixture of first shapes, such as water and oil."
     else:
@@ -711,31 +723,29 @@ label scene_nana_horseradish:
     jump scene_magic2
 label scene_magic2:
 
-    maria "Anyways, let me continue:"
+    maria "Anyway, let me continue:"
 
     maria "The devil grew envious of the Lord's creation and wanted to spread chaos and destruction."
 
     maria "So he created the {b}Second Spells{/b} to create unimaginable things."
 
-    maria "These Second Spells can make curses, illusions and even monsters."
+    maria "These Second Spells can create curses, illusions, and even monsters."
 
     nana "So the Second Spells are evil, and the First Spells are good?"
 
     maria "Yes, and while mages generally use the First Spells, there are also witches, who use the evil Second Spells."
 
-    nana "Oh, don't worry! I am a mage that only uses First Spells!"
+    nana "Oh, don't worry! I'm a mage who only uses First Spells!"
 
-    nana "Mostly, -I mean exclusively! First Spells!"
+    nana "Mostly, -I mean, exclusively! First Spells!"
     
-    "Nana looks at Maria with big eyes and a large smile, as if she was waiting for praise."
+    "Nana looks at Maria with wide eyes and a big smile, as if she was waiting for praise."
 
     if player_is_maria():
         if maria_sheet.skill_test("insight", 12):
             maria "(Did she just slip up by saying 'mostly'?)"
         else:
             "..."
-
-    nana "Actually, "
 
 label scene_window_fix:
 
@@ -751,15 +761,167 @@ label scene_window_fix:
     show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
-    maria "I think we have more important matters to address."
+    nana "You know, actually, I just wanted to test you!"
 
-    maria "How are we going to fix the window?"
+    nana "To see if {b}you{/b} knew the difference between First and Second Spells!"
+
+    "Nana gives Maria an overly confident smile."
+
+    if nana_sheet.skill_test("persuasion", 14):
+
+        maria "That's great, God's great!"
+
+        maria "I didn't expect to meet such a talented young mage today!"
+
+        nana "Well, I haven't shown you any of my magic yet!"
+    
+    else: # persuasion fail
+
+        show maria mouth_smile
+
+        maria "Oh? Is that so?"
+
+        if player_is_maria():
+            maria "(As if... But I'll just play along for now.)"
+
+        maria "I suppose I should be honoured to have passed your little test."
+
+        nana "Yes! Exactly!"
+
+        "Nana nods enthusiastically."
+
+
+    maria "So, how about we fix the window with that little magic of yours?"
 
     if player_is_nana():
+        $ deception_chance = nana_sheet.skill_success_rate("deception", 8)
+        $ persuasion_chance = nana_sheet.skill_success_rate("persuasion", 12)
         menu:
-            "I know a second spell to fix the window!":
-                $ jump_label_nana3 = "scene_nana_window_fix_spell"
+            "I know a Second Spell to fix the window!":
+                $ jump_label_nana3 = "scene_nana_window_fix_second_spell"
+            
+            "I know a First Spell to fix the window! (Deception [deception_chance]\%)":
+                $ jump_label_nana3 = "scene_nana_window_fix_first_spell"
 
+            "Let's just repair that normally (Persuasion [persuasion_chance]\%)":
+                $ jump_label_nana3 = "scene_nana_window_fix_normal"
+    
+    $ renpy.jump(jump_label_nana3)
 
-                # TODO nana ich wollte dich nur testen und ehm schauen ob du deine Hausaufgabe gemacht hat, haha
+label scene_nana_window_fix_second_spell:
 
+    nana "I know a Second Spell to fix the window!"
+
+    nana "It's actually quite simple! I just need to..."
+
+    nana "..."
+
+    nana "Oh."
+
+    nana "I mean..."
+
+    "Nana slowly realizes what she just said."
+
+    maria "A Second Spell?"
+
+    maria "In this chapel?"
+
+    nana "It's a perfectly safe one! I promise!"
+
+    maria "In the name of Jesus... So you are a witch after all?"
+
+    nana "Well, I guess the cat's out of the bag now..."
+
+    nana "But you know, not many people get to see a witch at work!"
+
+    nana "That's... that's worth something, I think."
+
+    nana "I'm not saying you should be impressed. I'm just saying, you could be, if you wanted!"
+
+    maria "I will not have this sacred chapel desecrated by a witch's magic!"
+
+    nana "But repairing it with a Second Spell is our easiest option!"
+
+    maria "Your only option now is the door!"
+
+    maria "I wanted to save you, but perhaps you're beyond salvation."
+
+    maria "Please leave this chapel. now."
+
+    nana "I'm sorry, Maria."
+
+    "Nana slowly makes her way towards the chapel door."
+
+    nana "I suppose I could use the door this time..."
+
+    "A cold gust of wind blows through the chapel as she opens it. Rain pours down outside."
+
+    "Nana steps outside and turns around one last time to look at Maria."
+
+    nana "Goodbye, Maria."
+
+    play sound "sfx/thunderstrike.ogg"
+
+    "A blinding flash illuminates the chapel and its surroundings."
+
+    "For a brief moment, everything disappears in the white light."
+
+    "When the light fades, Nana is still standing outside."
+
+    "A thin trail of smoke rises from her body."
+
+    "She doesn't move."
+
+    "Then, she collapses onto her knees."
+
+    "And falls to the ground with a thud."
+
+    maria "..."
+
+    "Maria stares at the scene before her, unable to comprehend what has just happened"
+
+    maria "Nana...?"
+
+    "Maria takes a hesitant step towards the door."
+
+    "The acrid smell of burnt flesh drifts towards her."
+
+    maria "What...?"
+
+    # First bell ring
+    #play sound "sfx/bell.ogg"
+
+    "A deep, resonant chime echoes through the chapel."
+
+    maria "..."
+
+    maria "The bell?"
+
+    maria "But... How is that possible?"
+
+    maria "The chapel bell hasn't rung once in my entire lifetime!"
+
+    maria "Grandfather always said the mechanism had been stuck for decades."
+
+    maria "It never moved an inch whenever I tried to pull its rope."
+
+    # Second bell ring
+    #play sound "sfx/bell.ogg"
+
+    "Another chime."
+    
+    "Nana is lying on the ground, motionless."
+
+    "Steam is still rising from her body."
+
+    # Third bell ring
+    #play sound "sfx/bell.ogg"
+
+    "The bell rings a third time."
+
+    "Everything goes black and Maria starts to feel dizzy."
+
+    maria "What is happening...?"
+
+    # DEAD END => next loop
+    jump next_loop

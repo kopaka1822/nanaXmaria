@@ -10,7 +10,7 @@
 
     # game/dnd/abilities.rpy:27
     old "Physical strength. Affects intimidation and athletics rolls."
-    new "Körperkraft. Beeinflusst Prüfungen in Einschüchterungs- und Athletik."
+    new "Körperkraft. Beeinflusst Prüfungen in Einschüchterung und Athletik."
 
     # game/dnd/abilities.rpy:27
     old "Dexterity"
@@ -22,7 +22,7 @@
 
     # game/dnd/abilities.rpy:27
     old "Agility, reflexes and balance. Affects acrobatics, stealth, and sleight of hand rolls."
-    new "Beweglichkeit, Reflexe und Gleichgewicht. Beeinflusst Prüfungen in Akrobatik-, Heimlichkeits- und Fingerfertig."
+    new "Beweglichkeit, Reflexe und Gleichgewicht. Beeinflusst Prüfungen in Akrobatik, Heimlichkeit und Fingerfertig."
 
     # game/dnd/abilities.rpy:27
     old "Constitution"
@@ -46,7 +46,7 @@
 
     # game/dnd/abilities.rpy:27
     old "Knowledge and mental acuity. Affects history, arcana, investigation, nature, and religion rolls."
-    new "Wissen und geistige Schärfe. Beeinflusst Prüfungen in Geschichte, Arkanes, Nachforschungen, Natur und Religion."
+    new "Wissen und geistige Schärfe. Beeinflusst Prüfungen in Geschichte, Magiekunde, Kombinieren, Natur und Religion."
 
     # game/dnd/abilities.rpy:27
     old "Wisdom"
@@ -70,7 +70,7 @@
 
     # game/dnd/abilities.rpy:27
     old "Personal charm. Affects deception, performance, and persuasion rolls."
-    new "Persönliche Ausstrahlung. Beeinflusst Prüfungen in Täuschung, Darstellung und Überzeugung."
+    new "Persönliche Ausstrahlung. Beeinflusst Prüfungen in Täuschen, Auftreten und Überzeugen."
 
     # game/dnd/abilities.rpy:60
     old "Intimidation"
@@ -114,11 +114,11 @@
 
     # game/dnd/abilities.rpy:60
     old "Recall information about history or people."
-    new "Informationen über Geschichte oder Personen abrufen."
+    new "Informationen über Geschichte oder Personen."
 
     # game/dnd/abilities.rpy:60
     old "Arcana"
-    new "Arkane Kunde"
+    new "Magiekunde"
 
     # game/dnd/abilities.rpy:60
     old "Knowledge about magic."
@@ -126,7 +126,7 @@
 
     # game/dnd/abilities.rpy:60
     old "Investigation"
-    new "Nachforschungen"
+    new "Kombinieren"
 
     # game/dnd/abilities.rpy:60
     old "Analyze clues and ask clever questions."
@@ -146,7 +146,7 @@
 
     # game/dnd/abilities.rpy:60
     old "Recall information about gods, rituals, and holy symbols."
-    new "Informationen über Götter, Rituale und heilige Symbole abrufen."
+    new "Informationen über Götter, Rituale und heilige Symbole."
 
     # game/dnd/abilities.rpy:60
     old "Insight"

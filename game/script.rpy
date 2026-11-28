@@ -126,6 +126,7 @@ label next_loop:
     stop music
     stop ambient
     stop ambient2
+    $ show_character_sheet_overlay = False # enable later
 
 label start:
     #jump scene2
@@ -524,12 +525,12 @@ label scene_maria_introduces_herself:
 label scene_nana_introduces_herself:
 
     scene black
-    show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
+    show nana idle mouth_smile brows_neutral at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
     nana "Nana."
 
-    show nana brows_up
+    show nana brows_up mouth_bigsmile
     nana "My name is Nana!"
 
     show nana brows_neutral iris_think mouth_smile
@@ -684,13 +685,14 @@ label scene_maria_nana_discuss_magic:
     stop ambient2
     play ambient2 "sfx/rain.ogg" volume 0.8 fadein 2.0 # continue ambient sfx from before
 
-    show nana idle mouth_smile at nana_duo_pos
+    show nana idle mouth_neutral brows_updown eyes_squint at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
     nana "So everything that 'naturally' exists is made from first shapes?"
 
     maria "Yes, precisely."
 
+    show nana iris_think mouth_smile eyes_blink
     if player_is_nana():
         menu:
             "Is mayonnaise a first shape?":
@@ -705,8 +707,10 @@ label scene_nana_mayonnaise:
     nana "Is mayonnaise a first shape?"
 
     if maria_sheet.skill_test("arcana", 10):
+        show maria eyes_closed_up brows_up mouth_smile
         maria "No, mayonnaise is not a first shape. It is a mixture of first shapes, such as water and oil."
     else:
+        show maria brows_down mouth_frown iris_sad
         maria "I think it could be... but I am not sure. I haven't studied arcana."
 
     jump scene_magic2
@@ -716,33 +720,49 @@ label scene_nana_horseradish:
     nana "Is horseradish a first shape?"
 
     if maria_sheet.skill_test("arcana", 10):
+        show maria eyes_closed_up brows_up mouth_smile
         maria "No, horseradish is not a first shape. Living beings are complex and consist of multiple first shapes."
     else:
+        show maria brows_down mouth_frown iris_sad
         maria "I don't think it is... There was some catch to it, I forgot."
 
     jump scene_magic2
 label scene_magic2:
 
+    show maria eyes_closed_up brows_up mouth_smile iris_center
+    show nana iris_center brows_neutral mouth_neutral
     maria "Anyway, let me continue:"
 
+    show maria head_back mouth_neutral eyes_squint
     maria "The devil grew envious of the Lord's creation and wanted to spread chaos and destruction."
 
+    show maria head_neutral eyes_blink
     maria "So he created the {b}Second Spells{/b} to create unimaginable things."
 
+    show maria eyes_squint
     maria "These Second Spells can create curses, illusions, and even monsters."
 
+    show maria eyes_blink
+    show nana brows_updown mouth_smile head_asking
     nana "So the Second Spells are evil, and the First Spells are good?"
 
+    show nana head_neutral mouth_neutral
+    show maria mouth_smile eyes_closed_up brows_up
     maria "Yes, and while mages generally use the First Spells, there are also witches, who use the evil Second Spells."
 
+    show maria eyes_blink brows_neutral
+    show nana mouth_bigsmile brows_up
     nana "Oh, don't worry! I'm a mage who only uses First Spells!"
 
+    show nana brows_down mouth_smile
     nana "Mostly, -I mean, exclusively! First Spells!"
     
+    show nana brows_up mouth_bigsmile
     "Nana looks at Maria with wide eyes and a big smile, as if she was waiting for praise."
 
     if player_is_maria():
         if maria_sheet.skill_test("insight", 12):
+            show maria iris_think
             maria "(Did she just slip up by saying 'mostly'?)"
         else:
             "..."
@@ -758,39 +778,49 @@ label scene_window_fix:
     "And the wind that is entering through the broken window is getting colder and colder."
 
     scene black
-    show nana idle mouth_bigsmile brows_neutral at nana_duo_pos
+    show nana idle mouth_bigsmile brows_up eyes_closed_up at nana_duo_pos
     show maria idle mouth_smile at maria_duo_pos
 
     nana "You know, actually, I just wanted to test you!"
 
+    show nana eyes_blink mouth_smile brows_neutral
     nana "To see if {b}you{/b} knew the difference between First and Second Spells!"
 
+    show nana mouth_bigsmile brows_up
     "Nana gives Maria an overly confident smile."
 
     if nana_sheet.skill_test("persuasion", 14):
 
+        show maria mouth_bigsmile brows_up
         maria "That's great, God's great!"
 
+        show maria eyes_closed_up brows_down mouth_smile
         maria "I didn't expect to meet such a talented young mage today!"
 
+        show nana mouth_bigsmile brows_up eyes_closed_up
         nana "Well, I haven't shown you any of my magic yet!"
     
     else: # persuasion fail
 
-        show maria mouth_smile
+        show maria brows_updown mouth_neutral
 
         maria "Oh? Is that so?"
 
         if player_is_maria():
+            show maria iris_left
             maria "(As if... But I'll just play along for now.)"
 
+        show maria iris_center mouth_smile brows_up
         maria "I suppose I should be honoured to have passed your little test."
 
+        show nana mouth_bigsmile brows_up head_forward
         nana "Yes! Exactly!"
 
+        show nana head_back
         "Nana nods enthusiastically."
 
-
+    show nana eyes_blink head_neutral mouth_smile
+    show maria eyes_blink iris_right head_asking mouth_smile brows_neutral
     maria "So, how about we fix the window with that little magic of yours?"
 
     if player_is_nana():
@@ -810,46 +840,73 @@ label scene_window_fix:
 
 label scene_nana_window_fix_second_spell:
 
+    show nana mouth_bigsmile eyes_closed_up
     nana "I know a Second Spell to fix the window!"
 
+    show maria head_neutral iris_center brows_neutral mouth_neutral
+    show nana eyes_blink mouth_smile
     nana "It's actually quite simple! I just need to..."
 
+    show nana mouth_pout brows_neutral
+    show maria mouth_frown
+    stop music
     nana "..."
 
+    show nana mouth_frown iris_right brows_down
     nana "Oh."
 
+    show nana iris_center
+    show maria brows_angry
     nana "I mean..."
 
+    show nana iris_right
     "Nana slowly realizes what she just said."
 
     maria "A Second Spell?"
 
     maria "In this chapel?"
 
+    show nana iris_sad mouth_smile
     nana "It's a perfectly safe one! I promise!"
 
+    show maria iris_right head_right
     maria "In the name of Jesus... So you are a witch after all?"
 
+    show nana head_back
     nana "Well, I guess the cat's out of the bag now..."
 
+    show nana head_neutral iris_center
     nana "But you know, not many people get to see a witch at work!"
 
+    show nana head_left iris_left
     nana "That's... that's worth something, I think."
 
+    show nana head_back iris_sad
+    show maria head_neutral
     nana "I'm not saying you should be impressed. I'm just saying, you could be, if you wanted!"
 
+    show maria iris_center
+    if maria_sheet.skill_test("religion", 12):
+        maria "Do not turn to witches, for you will be defiled by them. ~ Leviticus 19:31"
+        
     maria "I will not have this sacred chapel desecrated by a witch's magic!"
 
+    show nana iris_center head_neutral
     nana "But repairing it with a Second Spell is our easiest option!"
 
+    show maria eyes_closed_up mouth_smile
+    show nana iris_center
     maria "Your only option now is the door!"
 
     maria "I wanted to save you, but perhaps you're beyond salvation."
 
+    show maria eyes_blink mouth_neutral brows_neutral
     maria "Please leave this chapel. now."
 
+    show nana iris_sad mouth_frown
     nana "I'm sorry, Maria."
 
+    scene black with dissolve
     "Nana slowly makes her way towards the chapel door."
 
     nana "I suppose I could use the door this time..."

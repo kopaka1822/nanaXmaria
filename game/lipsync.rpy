@@ -212,6 +212,8 @@ init -20 python:
         if not interact:
             return
         if event == "show_done":
+            if what.startswith("("): # ignore thought bubbles
+                return
             current_speaker = name
             speaking_text = what
             speaking_index = 0
